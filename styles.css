@@ -1,0 +1,1595 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color: transparent;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #222;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+text {
+  font: 8px Kalam, "Noteworthy", "Bradley Hand", "Brush Script MT", sans-serif;
+  text-anchor: middle;
+  fill: none;
+}
+
+span {
+  display: none;
+}
+
+svg {
+  width: 80vmin;
+  height: 50vmin;
+  margin: 0 2.5vmin;
+  order: 2;
+}
+svg.debug {
+  background: white;
+}
+svg.debug path {
+  stroke: black;
+  stroke-width: 0.1px;
+}
+svg ~ a {
+  width: 7.5vmin;
+  display: none;
+  color: white;
+  text-decoration: none;
+  opacity: 0.25;
+}
+svg ~ a:hover {
+  opacity: 0.75;
+}
+svg ~ a:before {
+  content: "▶︎";
+  display: block;
+  width: 7.5vmin;
+  height: 7.5vmin;
+  border: 2px solid white;
+  border-radius: 50%;
+  font-size: 3.75vmin;
+  text-align: center;
+  line-height: 8.5vmin;
+  text-indent: 0.7vmin;
+}
+
+rect {
+  fill: var(--color, grey);
+  stroke: var(--border, var(--color, grey));
+  stroke-width: var(--thikness, 0);
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: var(--length, 100px) calc(100px - var(--length, 100px));
+  height: var(--size, 60px);
+  width: var(--size, 60px);
+  x: calc(-0.5 * var(--size, 60px));
+  y: calc(-0.5 * var(--size, 60px));
+  rx: var(--rx, 0);
+  transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--rotate, 0));
+  transition: all 500ms;
+}
+
+#bff:target ~ a[href="#start"], #bff:target ~ a[href="#svg"], #svg:target ~ a[href="#bff"], #svg:target ~ a[href="#css"], #css:target ~ a[href="#svg"], #css:target ~ a[href="#chrome"], #chrome:target ~ a[href="#css"], #chrome:target ~ a[href="#basic"], #basic:target ~ a[href="#chrome"], #basic:target ~ a[href="#sunny"], #sunny:target ~ a[href="#basic"], #sunny:target ~ a[href="#mountain"], #mountain:target ~ a[href="#sunny"], #mountain:target ~ a[href="#flower"], #flower:target ~ a[href="#mountain"], #flower:target ~ a[href="#expend"], #expend:target ~ a[href="#flower"], #expend:target ~ a[href="#list"], #list:target ~ a[href="#expend"], #list:target ~ a[href="#heart"], #heart:target ~ a[href="#list"], #heart:target ~ a[href="#round"], #round:target ~ a[href="#heart"], #round:target ~ a[href="#blush"], #blush:target ~ a[href="#round"], #blush:target ~ a[href="#start"], #start:target ~ a[href="#blush"], #start:target ~ a[href="#bff"] {
+  display: block;
+}
+
+#bff:target ~ a[href="#start"], #svg:target ~ a[href="#bff"], #css:target ~ a[href="#svg"], #chrome:target ~ a[href="#css"], #basic:target ~ a[href="#chrome"], #sunny:target ~ a[href="#basic"], #mountain:target ~ a[href="#sunny"], #flower:target ~ a[href="#mountain"], #expend:target ~ a[href="#flower"], #list:target ~ a[href="#expend"], #heart:target ~ a[href="#list"], #round:target ~ a[href="#heart"], #blush:target ~ a[href="#round"], #start:target ~ a[href="#blush"] {
+  order: 2;
+}
+#bff:target ~ a[href="#start"]:before, #svg:target ~ a[href="#bff"]:before, #css:target ~ a[href="#svg"]:before, #chrome:target ~ a[href="#css"]:before, #basic:target ~ a[href="#chrome"]:before, #sunny:target ~ a[href="#basic"]:before, #mountain:target ~ a[href="#sunny"]:before, #flower:target ~ a[href="#mountain"]:before, #expend:target ~ a[href="#flower"]:before, #list:target ~ a[href="#expend"]:before, #heart:target ~ a[href="#list"]:before, #round:target ~ a[href="#heart"]:before, #blush:target ~ a[href="#round"]:before, #start:target ~ a[href="#blush"]:before {
+  transform: scale(1, 1);
+}
+
+#bff:target ~ a[href="#svg"], #svg:target ~ a[href="#css"], #css:target ~ a[href="#chrome"], #chrome:target ~ a[href="#basic"], #basic:target ~ a[href="#sunny"], #sunny:target ~ a[href="#mountain"], #mountain:target ~ a[href="#flower"], #flower:target ~ a[href="#expend"], #expend:target ~ a[href="#list"], #list:target ~ a[href="#heart"], #heart:target ~ a[href="#round"], #round:target ~ a[href="#blush"], #blush:target ~ a[href="#start"], #start:target ~ a[href="#bff"] {
+  order: 0;
+}
+#bff:target ~ a[href="#svg"]:before, #svg:target ~ a[href="#css"]:before, #css:target ~ a[href="#chrome"]:before, #chrome:target ~ a[href="#basic"]:before, #basic:target ~ a[href="#sunny"]:before, #sunny:target ~ a[href="#mountain"]:before, #mountain:target ~ a[href="#flower"]:before, #flower:target ~ a[href="#expend"]:before, #expend:target ~ a[href="#list"]:before, #list:target ~ a[href="#heart"]:before, #heart:target ~ a[href="#round"]:before, #round:target ~ a[href="#blush"]:before, #blush:target ~ a[href="#start"]:before, #start:target ~ a[href="#bff"]:before {
+  transform: scale(-1, 1);
+}
+
+#start:target ~ svg rect {
+  --color: grey;
+}
+
+#blush:target ~ svg rect {
+  --color: hsl(0, 45%, 50%);
+}
+
+#round:target ~ svg {
+  --color: hsl(0, 45%, 50%);
+  --rx: 50%;
+  --rotate: 45deg;
+  --size: 40px;
+}
+
+#round:target ~ svg rect {
+  --size: 60px;
+}
+
+#heart:target ~ svg {
+  --color: hsl(0, 45%, 50%);
+  --rotate: 45deg;
+  --rx: 50%;
+  --thikness: 10px;
+  --size: 40px;
+}
+
+#heart:target ~ svg rect {
+  --rx: 0;
+  --y: 5px;
+}
+
+#heart:target ~ svg use:nth-of-type(1) {
+  --y: -10px;
+  --x: -15px;
+}
+
+#heart:target ~ svg use:nth-of-type(2) {
+  --y: -10px;
+  --x: 15px;
+}
+
+#list:target ~ svg {
+  --size: 20px;
+}
+
+#list:target ~ svg rect {
+  --color: grey;
+  --x: -60px;
+  --y: -30px;
+}
+
+#list:target ~ svg use {
+  --color: rgba(128, 128, 128, 0.5);
+}
+
+#list:target ~ svg use:nth-of-type(0) {
+  --x: -60px;
+  --y: -30px;
+}
+
+#list:target ~ svg use:nth-of-type(1) {
+  --x: -30px;
+  --y: 0px;
+}
+
+#list:target ~ svg use:nth-of-type(2) {
+  --x: 0px;
+  --y: 30px;
+}
+
+#list:target ~ svg use:nth-of-type(3) {
+  --x: 30px;
+  --y: -30px;
+}
+
+#list:target ~ svg use:nth-of-type(4) {
+  --x: 60px;
+  --y: 0px;
+}
+
+#list:target ~ svg use:nth-of-type(5) {
+  --x: -60px;
+  --y: 30px;
+}
+
+#list:target ~ svg use:nth-of-type(6) {
+  --x: -30px;
+  --y: -30px;
+}
+
+#list:target ~ svg use:nth-of-type(7) {
+  --x: 0px;
+  --y: 0px;
+}
+
+#list:target ~ svg use:nth-of-type(8) {
+  --x: 30px;
+  --y: 30px;
+}
+
+#list:target ~ svg use:nth-of-type(9) {
+  --x: 60px;
+  --y: -30px;
+}
+
+#list:target ~ svg use:nth-of-type(10) {
+  --x: -60px;
+  --y: 0px;
+}
+
+#list:target ~ svg use:nth-of-type(11) {
+  --x: -30px;
+  --y: 30px;
+}
+
+#list:target ~ svg use:nth-of-type(12) {
+  --x: 0px;
+  --y: -30px;
+}
+
+#list:target ~ svg use:nth-of-type(13) {
+  --x: 30px;
+  --y: 0px;
+}
+
+#list:target ~ svg use:nth-of-type(14) {
+  --x: 60px;
+  --y: 30px;
+}
+
+#list:target ~ svg use:nth-of-type(n+15) {
+  display: none;
+}
+
+#expend:target ~ svg rect {
+  --color: hsla(0, 100%, 50%, 0.5);
+  transform: perspective(300px) rotateY(-35deg) translateZ(-50px);
+}
+
+#expend:target ~ svg use:nth-of-type(1) {
+  transform: perspective(300px) rotateY(-35deg) translateZ(-25px);
+  --color: hsla(72deg, 100%, 50%, 0.5);
+}
+
+#expend:target ~ svg use:nth-of-type(2) {
+  transform: perspective(300px) rotateY(-35deg) translateZ(0px);
+  --color: hsla(144deg, 100%, 50%, 0.5);
+}
+
+#expend:target ~ svg use:nth-of-type(3) {
+  transform: perspective(300px) rotateY(-35deg) translateZ(25px);
+  --color: hsla(216deg, 100%, 50%, 0.5);
+}
+
+#expend:target ~ svg use:nth-of-type(4) {
+  transform: perspective(300px) rotateY(-35deg) translateZ(50px);
+  --color: hsla(288deg, 100%, 50%, 0.5);
+}
+
+#flower:target ~ svg use:nth-of-type(8) {
+  --rx: 50%;
+  --size: 100px;
+  --border: green;
+  --thikness: 5px;
+  --length: 25px;
+  --rotate: 220deg;
+  --x: 40px;
+  --y: 30px;
+}
+
+#flower:target ~ svg use:nth-of-type(9) {
+  --color: white;
+  --rx: 50%;
+  --size: 20px;
+  --x: 0;
+  --y: -10px;
+}
+
+#flower:target ~ svg use:nth-of-type(10) {
+  --color: white;
+  --rx: 50%;
+  --size: 20px;
+  --x: -10px;
+  --y: -3px;
+}
+
+#flower:target ~ svg use:nth-of-type(11) {
+  --color: white;
+  --rx: 50%;
+  --size: 20px;
+  --x: -6px;
+  --y: 8px;
+}
+
+#flower:target ~ svg use:nth-of-type(12) {
+  --color: white;
+  --rx: 50%;
+  --size: 20px;
+  --x: 6px;
+  --y: 8px;
+}
+
+#flower:target ~ svg use:nth-of-type(13) {
+  --color: white;
+  --rx: 50%;
+  --size: 20px;
+  --x: 10px;
+  --y: -3px;
+}
+
+#flower:target ~ svg use:nth-of-type(14) {
+  --rx: 50%;
+  --color: yellow;
+  --border: #FCE;
+  --thikness: 2px;
+  --size: 20px;
+}
+
+#mountain:target ~ svg use:nth-of-type(6), #mountain:target ~ svg use:nth-of-type(7) {
+  --color: grey;
+}
+
+#mountain:target ~ svg use:nth-of-type(8), #mountain:target ~ svg use:nth-of-type(9), #mountain:target ~ svg use:nth-of-type(10), #mountain:target ~ svg use:nth-of-type(11) {
+  --color: white;
+}
+
+#mountain:target ~ svg use:nth-of-type(6), #mountain:target ~ svg use:nth-of-type(7) {
+  --thikness: 10px;
+}
+
+#mountain:target ~ svg use:nth-of-type(6), #mountain:target ~ svg use:nth-of-type(8), #mountain:target ~ svg use:nth-of-type(9), #mountain:target ~ svg use:nth-of-type(10), #mountain:target ~ svg use:nth-of-type(7), #mountain:target ~ svg use:nth-of-type(11) {
+  --rotate: 45deg;
+}
+
+#mountain:target ~ svg rect {
+  --color: hsl(200, 100%, 70%);
+  --size: 160px;
+}
+
+#mountain:target ~ svg use:nth-of-type(6) {
+  --size: 100px;
+  --y: 60px;
+  --x: -40px;
+}
+
+#mountain:target ~ svg use:nth-of-type(8) {
+  --thikness: 6px;
+  --size: 20px;
+  --y: 0px;
+  --x: -40px;
+}
+
+#mountain:target ~ svg use:nth-of-type(9) {
+  --thikness: 4px;
+  --size: 5px;
+  --y: 3px;
+  --x: -25px;
+}
+
+#mountain:target ~ svg use:nth-of-type(10) {
+  --thikness: 4px;
+  --size: 8px;
+  --y: 6px;
+  --x: -56px;
+}
+
+#mountain:target ~ svg use:nth-of-type(7) {
+  --size: 100px;
+  --y: 80px;
+  --x: 35px;
+}
+
+#mountain:target ~ svg use:nth-of-type(11) {
+  --thikness: 5px;
+  --size: 15px;
+  --y: 16px;
+  --x: 35px;
+}
+
+#sunny:target ~ svg use:nth-of-type(6), #sunny:target ~ svg use:nth-of-type(7) {
+  --color: grey;
+}
+
+#sunny:target ~ svg use:nth-of-type(8), #sunny:target ~ svg use:nth-of-type(9), #sunny:target ~ svg use:nth-of-type(10), #sunny:target ~ svg use:nth-of-type(11), #sunny:target ~ svg use:nth-of-type(3), #sunny:target ~ svg use:nth-of-type(4), #sunny:target ~ svg use:nth-of-type(5) {
+  --color: white;
+}
+
+#sunny:target ~ svg use:nth-of-type(6), #sunny:target ~ svg use:nth-of-type(7) {
+  --thikness: 10px;
+}
+
+#sunny:target ~ svg use:nth-of-type(6), #sunny:target ~ svg use:nth-of-type(8), #sunny:target ~ svg use:nth-of-type(9), #sunny:target ~ svg use:nth-of-type(10), #sunny:target ~ svg use:nth-of-type(7), #sunny:target ~ svg use:nth-of-type(11) {
+  --rotate: 45deg;
+}
+
+#sunny:target ~ svg use:nth-of-type(2), #sunny:target ~ svg use:nth-of-type(3), #sunny:target ~ svg use:nth-of-type(4), #sunny:target ~ svg use:nth-of-type(5) {
+  --rx: 50px;
+}
+
+#sunny:target ~ svg rect {
+  --color: hsl(200, 100%, 70%);
+  --size: 160px;
+}
+
+#sunny:target ~ svg use:nth-of-type(6) {
+  --size: 100px;
+  --y: 60px;
+  --x: -40px;
+}
+
+#sunny:target ~ svg use:nth-of-type(8) {
+  --thikness: 6px;
+  --size: 20px;
+  --y: 0px;
+  --x: -40px;
+}
+
+#sunny:target ~ svg use:nth-of-type(9) {
+  --thikness: 4px;
+  --size: 5px;
+  --y: 3px;
+  --x: -25px;
+}
+
+#sunny:target ~ svg use:nth-of-type(10) {
+  --thikness: 4px;
+  --size: 8px;
+  --y: 6px;
+  --x: -56px;
+}
+
+#sunny:target ~ svg use:nth-of-type(7) {
+  --size: 100px;
+  --y: 80px;
+  --x: 35px;
+}
+
+#sunny:target ~ svg use:nth-of-type(11) {
+  --thikness: 5px;
+  --size: 15px;
+  --y: 16px;
+  --x: 35px;
+}
+
+#sunny:target ~ svg use:nth-of-type(2) {
+  filter: url(#sun);
+  --color: #FFC;
+  --size: 30px;
+  --y: -25px;
+  --x: 45px;
+}
+
+#sunny:target ~ svg use:nth-of-type(3) {
+  filter: url(#cloud);
+  --size: 40px;
+  --y: 0px;
+  --x: 70px;
+}
+
+#sunny:target ~ svg use:nth-of-type(4) {
+  filter: url(#cloud);
+  --size: 40px;
+  --y: -50px;
+  --x: -70px;
+}
+
+#sunny:target ~ svg use:nth-of-type(5) {
+  filter: url(#cloud);
+  --size: 45px;
+  --y: -40px;
+  --x: -10px;
+}
+
+#basic:target ~ svg rect {
+  --color: grey;
+}
+
+#chrome:target ~ svg mask use:nth-of-type(2) {
+  --color: white;
+}
+
+#chrome:target ~ svg > use:nth-of-type(3), #chrome:target ~ svg mask use:nth-of-type(2) {
+  --rx: 50px;
+}
+
+#chrome:target ~ svg rect {
+  --color: #C03;
+  mask: url(#mask);
+}
+
+#chrome:target ~ svg > use:nth-of-type(1) {
+  mask: url(#mask);
+  transform: rotate(-120deg);
+  --color: #019934;
+}
+
+#chrome:target ~ svg > use:nth-of-type(2) {
+  mask: url(#mask);
+  transform: rotate(-240deg);
+  --color: #FDD20A;
+}
+
+#chrome:target ~ svg > use:nth-of-type(3) {
+  --size: 19px;
+  --color: #0099FF;
+  --border: white;
+  --thikness: 1.5px;
+}
+
+#chrome:target ~ svg mask use:nth-of-type(1) {
+  --size: 100px;
+  --color: black;
+}
+
+#chrome:target ~ svg mask use:nth-of-type(2) {
+  --size: 50px;
+}
+
+#chrome:target ~ svg mask use:nth-of-type(3) {
+  --size: 40px;
+  --thikness: 20px;
+  --x: 20px;
+  --y: 20px;
+  --color: black;
+}
+
+#chrome:target ~ svg mask use:nth-of-type(4) {
+  --size: 100px;
+  --rotate: 150deg;
+  --x: -40px;
+  --y: 51px;
+  --color: black;
+}
+
+#css:target ~ svg use:nth-of-type(3), #css:target ~ svg use:nth-of-type(4), #css:target ~ svg use:nth-of-type(5), #css:target ~ svg use:nth-of-type(6), #css:target ~ svg use:nth-of-type(7), #css:target ~ svg use:nth-of-type(8), #css:target ~ svg use:nth-of-type(9), #css:target ~ svg use:nth-of-type(10), #css:target ~ svg use:nth-of-type(11), #css:target ~ svg use:nth-of-type(12), #css:target ~ svg use:nth-of-type(13), #css:target ~ svg use:nth-of-type(14), #css:target ~ svg use:nth-of-type(15), #css:target ~ svg use:nth-of-type(16), #css:target ~ svg use:nth-of-type(17), #css:target ~ svg use:nth-of-type(18), #css:target ~ svg use:nth-of-type(19), #css:target ~ svg use:nth-of-type(20), #css:target ~ svg use:nth-of-type(21), #css:target ~ svg use:nth-of-type(22), #css:target ~ svg use:nth-of-type(23), #css:target ~ svg use:nth-of-type(24), #css:target ~ svg use:nth-of-type(25), #css:target ~ svg use:nth-of-type(26), #css:target ~ svg use:nth-of-type(27), #css:target ~ svg use:nth-of-type(28), #css:target ~ svg use:nth-of-type(29), #css:target ~ svg use:nth-of-type(30), #css:target ~ svg use:nth-of-type(31), #css:target ~ svg use:nth-of-type(32), #css:target ~ svg use:nth-of-type(33) {
+  --color: white;
+}
+
+#css:target ~ svg use:nth-of-type(3), #css:target ~ svg use:nth-of-type(4), #css:target ~ svg use:nth-of-type(5), #css:target ~ svg use:nth-of-type(6), #css:target ~ svg use:nth-of-type(7), #css:target ~ svg use:nth-of-type(8), #css:target ~ svg use:nth-of-type(9), #css:target ~ svg use:nth-of-type(10), #css:target ~ svg use:nth-of-type(11), #css:target ~ svg use:nth-of-type(12), #css:target ~ svg use:nth-of-type(13), #css:target ~ svg use:nth-of-type(14), #css:target ~ svg use:nth-of-type(15), #css:target ~ svg use:nth-of-type(16), #css:target ~ svg use:nth-of-type(17), #css:target ~ svg use:nth-of-type(18), #css:target ~ svg use:nth-of-type(19), #css:target ~ svg use:nth-of-type(20), #css:target ~ svg use:nth-of-type(21), #css:target ~ svg use:nth-of-type(22), #css:target ~ svg use:nth-of-type(23), #css:target ~ svg use:nth-of-type(24), #css:target ~ svg use:nth-of-type(25), #css:target ~ svg use:nth-of-type(26), #css:target ~ svg use:nth-of-type(27), #css:target ~ svg use:nth-of-type(28), #css:target ~ svg use:nth-of-type(29), #css:target ~ svg use:nth-of-type(30), #css:target ~ svg use:nth-of-type(31), #css:target ~ svg use:nth-of-type(32), #css:target ~ svg use:nth-of-type(33) {
+  --size: 10px;
+}
+
+#css:target ~ svg use:nth-of-type(3), #css:target ~ svg use:nth-of-type(4), #css:target ~ svg use:nth-of-type(5), #css:target ~ svg use:nth-of-type(6), #css:target ~ svg use:nth-of-type(7), #css:target ~ svg use:nth-of-type(8), #css:target ~ svg use:nth-of-type(9), #css:target ~ svg use:nth-of-type(10), #css:target ~ svg use:nth-of-type(11), #css:target ~ svg use:nth-of-type(12), #css:target ~ svg use:nth-of-type(13), #css:target ~ svg use:nth-of-type(14), #css:target ~ svg use:nth-of-type(15), #css:target ~ svg use:nth-of-type(16), #css:target ~ svg use:nth-of-type(17), #css:target ~ svg use:nth-of-type(18), #css:target ~ svg use:nth-of-type(19), #css:target ~ svg use:nth-of-type(20), #css:target ~ svg use:nth-of-type(21), #css:target ~ svg use:nth-of-type(22), #css:target ~ svg use:nth-of-type(23), #css:target ~ svg use:nth-of-type(24), #css:target ~ svg use:nth-of-type(25), #css:target ~ svg use:nth-of-type(26), #css:target ~ svg use:nth-of-type(27), #css:target ~ svg use:nth-of-type(28), #css:target ~ svg use:nth-of-type(29), #css:target ~ svg use:nth-of-type(30), #css:target ~ svg use:nth-of-type(31), #css:target ~ svg use:nth-of-type(32), #css:target ~ svg use:nth-of-type(33) {
+  --thikness: 1px;
+}
+
+#css:target ~ svg use:nth-of-type(3) {
+  --x: -50px;
+  --y: -20px;
+}
+
+#css:target ~ svg use:nth-of-type(4) {
+  --x: -30px;
+  --y: 20px;
+}
+
+#css:target ~ svg use:nth-of-type(5) {
+  --x: -50px;
+  --y: 10px;
+}
+
+#css:target ~ svg use:nth-of-type(6) {
+  --x: -40px;
+  --y: -20px;
+}
+
+#css:target ~ svg use:nth-of-type(7) {
+  --x: -40px;
+  --y: 20px;
+}
+
+#css:target ~ svg use:nth-of-type(8) {
+  --x: -30px;
+  --y: -20px;
+}
+
+#css:target ~ svg use:nth-of-type(9) {
+  --x: -50px;
+  --y: 0px;
+}
+
+#css:target ~ svg use:nth-of-type(10) {
+  --x: -50px;
+  --y: 20px;
+}
+
+#css:target ~ svg use:nth-of-type(11) {
+  --x: -50px;
+  --y: -10px;
+}
+
+#css:target ~ svg use:nth-of-type(12) {
+  --x: 10px;
+  --y: 20px;
+}
+
+#css:target ~ svg use:nth-of-type(13) {
+  --x: -10px;
+  --y: -20px;
+}
+
+#css:target ~ svg use:nth-of-type(14) {
+  --x: 0px;
+  --y: 20px;
+}
+
+#css:target ~ svg use:nth-of-type(15) {
+  --x: 0px;
+  --y: -20px;
+}
+
+#css:target ~ svg use:nth-of-type(16) {
+  --x: -10px;
+  --y: 20px;
+}
+
+#css:target ~ svg use:nth-of-type(17) {
+  --x: 10px;
+  --y: -20px;
+}
+
+#css:target ~ svg use:nth-of-type(18) {
+  --x: -10px;
+  --y: -10px;
+}
+
+#css:target ~ svg use:nth-of-type(19) {
+  --x: 10px;
+  --y: 10px;
+}
+
+#css:target ~ svg use:nth-of-type(20) {
+  --x: -10px;
+  --y: 0px;
+}
+
+#css:target ~ svg use:nth-of-type(21) {
+  --x: 10px;
+  --y: 0px;
+}
+
+#css:target ~ svg use:nth-of-type(22) {
+  --x: 0px;
+  --y: 0px;
+}
+
+#css:target ~ svg use:nth-of-type(23) {
+  --x: 50px;
+  --y: 20px;
+}
+
+#css:target ~ svg use:nth-of-type(24) {
+  --x: 30px;
+  --y: -20px;
+}
+
+#css:target ~ svg use:nth-of-type(25) {
+  --x: 40px;
+  --y: 20px;
+}
+
+#css:target ~ svg use:nth-of-type(26) {
+  --x: 40px;
+  --y: -20px;
+}
+
+#css:target ~ svg use:nth-of-type(27) {
+  --x: 30px;
+  --y: 20px;
+}
+
+#css:target ~ svg use:nth-of-type(28) {
+  --x: 50px;
+  --y: -20px;
+}
+
+#css:target ~ svg use:nth-of-type(29) {
+  --x: 30px;
+  --y: -10px;
+}
+
+#css:target ~ svg use:nth-of-type(30) {
+  --x: 50px;
+  --y: 10px;
+}
+
+#css:target ~ svg use:nth-of-type(31) {
+  --x: 30px;
+  --y: 0px;
+}
+
+#css:target ~ svg use:nth-of-type(32) {
+  --x: 50px;
+  --y: 0px;
+}
+
+#css:target ~ svg use:nth-of-type(33) {
+  --x: 40px;
+  --y: 0px;
+}
+
+#svg:target ~ svg use:nth-of-type(3), #svg:target ~ svg use:nth-of-type(4), #svg:target ~ svg use:nth-of-type(5), #svg:target ~ svg use:nth-of-type(6), #svg:target ~ svg use:nth-of-type(7), #svg:target ~ svg use:nth-of-type(8), #svg:target ~ svg use:nth-of-type(9), #svg:target ~ svg use:nth-of-type(10), #svg:target ~ svg use:nth-of-type(11), #svg:target ~ svg use:nth-of-type(12), #svg:target ~ svg use:nth-of-type(13), #svg:target ~ svg use:nth-of-type(14), #svg:target ~ svg use:nth-of-type(15), #svg:target ~ svg use:nth-of-type(16), #svg:target ~ svg use:nth-of-type(17), #svg:target ~ svg use:nth-of-type(18), #svg:target ~ svg use:nth-of-type(19), #svg:target ~ svg use:nth-of-type(20), #svg:target ~ svg use:nth-of-type(21), #svg:target ~ svg use:nth-of-type(22), #svg:target ~ svg use:nth-of-type(23), #svg:target ~ svg use:nth-of-type(24), #svg:target ~ svg use:nth-of-type(25), #svg:target ~ svg use:nth-of-type(26), #svg:target ~ svg use:nth-of-type(27), #svg:target ~ svg use:nth-of-type(28), #svg:target ~ svg use:nth-of-type(29), #svg:target ~ svg use:nth-of-type(30), #svg:target ~ svg use:nth-of-type(31), #svg:target ~ svg use:nth-of-type(32), #svg:target ~ svg use:nth-of-type(33) {
+  --color: white;
+}
+
+#svg:target ~ svg use:nth-of-type(3), #svg:target ~ svg use:nth-of-type(4), #svg:target ~ svg use:nth-of-type(5), #svg:target ~ svg use:nth-of-type(6), #svg:target ~ svg use:nth-of-type(7), #svg:target ~ svg use:nth-of-type(8), #svg:target ~ svg use:nth-of-type(9), #svg:target ~ svg use:nth-of-type(10), #svg:target ~ svg use:nth-of-type(11), #svg:target ~ svg use:nth-of-type(12), #svg:target ~ svg use:nth-of-type(13), #svg:target ~ svg use:nth-of-type(14), #svg:target ~ svg use:nth-of-type(15), #svg:target ~ svg use:nth-of-type(16), #svg:target ~ svg use:nth-of-type(17), #svg:target ~ svg use:nth-of-type(18), #svg:target ~ svg use:nth-of-type(19), #svg:target ~ svg use:nth-of-type(20), #svg:target ~ svg use:nth-of-type(21), #svg:target ~ svg use:nth-of-type(22), #svg:target ~ svg use:nth-of-type(23), #svg:target ~ svg use:nth-of-type(24), #svg:target ~ svg use:nth-of-type(25), #svg:target ~ svg use:nth-of-type(26), #svg:target ~ svg use:nth-of-type(27), #svg:target ~ svg use:nth-of-type(28), #svg:target ~ svg use:nth-of-type(29), #svg:target ~ svg use:nth-of-type(30), #svg:target ~ svg use:nth-of-type(31), #svg:target ~ svg use:nth-of-type(32), #svg:target ~ svg use:nth-of-type(33) {
+  --size: 10px;
+}
+
+#svg:target ~ svg use:nth-of-type(3), #svg:target ~ svg use:nth-of-type(4), #svg:target ~ svg use:nth-of-type(5), #svg:target ~ svg use:nth-of-type(6), #svg:target ~ svg use:nth-of-type(7), #svg:target ~ svg use:nth-of-type(8), #svg:target ~ svg use:nth-of-type(9), #svg:target ~ svg use:nth-of-type(10), #svg:target ~ svg use:nth-of-type(11), #svg:target ~ svg use:nth-of-type(12), #svg:target ~ svg use:nth-of-type(13), #svg:target ~ svg use:nth-of-type(14), #svg:target ~ svg use:nth-of-type(15), #svg:target ~ svg use:nth-of-type(16), #svg:target ~ svg use:nth-of-type(17), #svg:target ~ svg use:nth-of-type(18), #svg:target ~ svg use:nth-of-type(19), #svg:target ~ svg use:nth-of-type(20), #svg:target ~ svg use:nth-of-type(21), #svg:target ~ svg use:nth-of-type(22), #svg:target ~ svg use:nth-of-type(23), #svg:target ~ svg use:nth-of-type(24), #svg:target ~ svg use:nth-of-type(25), #svg:target ~ svg use:nth-of-type(26), #svg:target ~ svg use:nth-of-type(27), #svg:target ~ svg use:nth-of-type(28), #svg:target ~ svg use:nth-of-type(29), #svg:target ~ svg use:nth-of-type(30), #svg:target ~ svg use:nth-of-type(31), #svg:target ~ svg use:nth-of-type(32), #svg:target ~ svg use:nth-of-type(33) {
+  --thikness: 1px;
+}
+
+#svg:target ~ svg use:nth-of-type(3) {
+  --x: -30px;
+  --y: 20px;
+}
+
+#svg:target ~ svg use:nth-of-type(4) {
+  --x: -50px;
+  --y: -20px;
+}
+
+#svg:target ~ svg use:nth-of-type(5) {
+  --x: -40px;
+  --y: 20px;
+}
+
+#svg:target ~ svg use:nth-of-type(6) {
+  --x: -40px;
+  --y: -20px;
+}
+
+#svg:target ~ svg use:nth-of-type(7) {
+  --x: -50px;
+  --y: 20px;
+}
+
+#svg:target ~ svg use:nth-of-type(8) {
+  --x: -30px;
+  --y: -20px;
+}
+
+#svg:target ~ svg use:nth-of-type(9) {
+  --x: -50px;
+  --y: -10px;
+}
+
+#svg:target ~ svg use:nth-of-type(10) {
+  --x: -30px;
+  --y: 10px;
+}
+
+#svg:target ~ svg use:nth-of-type(11) {
+  --x: -50px;
+  --y: 0px;
+}
+
+#svg:target ~ svg use:nth-of-type(12) {
+  --x: -30px;
+  --y: 0px;
+}
+
+#svg:target ~ svg use:nth-of-type(13) {
+  --x: -40px;
+  --y: 0px;
+}
+
+#svg:target ~ svg use:nth-of-type(14) {
+  --x: -10px;
+  --y: -20px;
+}
+
+#svg:target ~ svg use:nth-of-type(15) {
+  --x: 10px;
+  --y: -20px;
+}
+
+#svg:target ~ svg use:nth-of-type(16) {
+  --x: -10px;
+  --y: -10px;
+}
+
+#svg:target ~ svg use:nth-of-type(17) {
+  --x: 10px;
+  --y: -10px;
+}
+
+#svg:target ~ svg use:nth-of-type(18) {
+  --x: -10px;
+  --y: 0px;
+}
+
+#svg:target ~ svg use:nth-of-type(19) {
+  --x: 10px;
+  --y: 0px;
+}
+
+#svg:target ~ svg use:nth-of-type(20) {
+  --x: -10px;
+  --y: 10px;
+}
+
+#svg:target ~ svg use:nth-of-type(21) {
+  --x: 10px;
+  --y: 10px;
+}
+
+#svg:target ~ svg use:nth-of-type(22) {
+  --x: 0px;
+  --y: 20px;
+}
+
+#svg:target ~ svg use:nth-of-type(23) {
+  --x: 30px;
+  --y: -20px;
+}
+
+#svg:target ~ svg use:nth-of-type(24) {
+  --x: 50px;
+  --y: 10px;
+}
+
+#svg:target ~ svg use:nth-of-type(25) {
+  --x: 40px;
+  --y: -20px;
+}
+
+#svg:target ~ svg use:nth-of-type(26) {
+  --x: 30px;
+  --y: 20px;
+}
+
+#svg:target ~ svg use:nth-of-type(27) {
+  --x: 40px;
+  --y: 20px;
+}
+
+#svg:target ~ svg use:nth-of-type(28) {
+  --x: 50px;
+  --y: -20px;
+}
+
+#svg:target ~ svg use:nth-of-type(29) {
+  --x: 50px;
+  --y: 20px;
+}
+
+#svg:target ~ svg use:nth-of-type(30) {
+  --x: 30px;
+  --y: -10px;
+}
+
+#svg:target ~ svg use:nth-of-type(31) {
+  --x: 30px;
+  --y: 0px;
+}
+
+#svg:target ~ svg use:nth-of-type(32) {
+  --x: 50px;
+  --y: 0px;
+}
+
+#svg:target ~ svg use:nth-of-type(33) {
+  --x: 30px;
+  --y: 10px;
+}
+
+#bff:target ~ svg use:nth-of-type(1), #bff:target ~ svg use:nth-of-type(2) {
+  --color: hsl(0, 45%, 50%);
+}
+
+#bff:target ~ svg use:nth-of-type(3), #bff:target ~ svg use:nth-of-type(4), #bff:target ~ svg use:nth-of-type(5), #bff:target ~ svg use:nth-of-type(6), #bff:target ~ svg use:nth-of-type(7), #bff:target ~ svg use:nth-of-type(8), #bff:target ~ svg use:nth-of-type(9), #bff:target ~ svg use:nth-of-type(10), #bff:target ~ svg use:nth-of-type(11), #bff:target ~ svg use:nth-of-type(12), #bff:target ~ svg use:nth-of-type(13), #bff:target ~ svg use:nth-of-type(14), #bff:target ~ svg use:nth-of-type(15), #bff:target ~ svg use:nth-of-type(16), #bff:target ~ svg use:nth-of-type(17), #bff:target ~ svg use:nth-of-type(18), #bff:target ~ svg use:nth-of-type(19), #bff:target ~ svg use:nth-of-type(20), #bff:target ~ svg use:nth-of-type(21), #bff:target ~ svg use:nth-of-type(22), #bff:target ~ svg use:nth-of-type(23), #bff:target ~ svg use:nth-of-type(24), #bff:target ~ svg use:nth-of-type(25), #bff:target ~ svg use:nth-of-type(26), #bff:target ~ svg use:nth-of-type(27), #bff:target ~ svg use:nth-of-type(28), #bff:target ~ svg use:nth-of-type(29), #bff:target ~ svg use:nth-of-type(30), #bff:target ~ svg use:nth-of-type(31), #bff:target ~ svg use:nth-of-type(32), #bff:target ~ svg use:nth-of-type(33) {
+  --color: white;
+}
+
+#bff:target ~ svg use:nth-of-type(3), #bff:target ~ svg use:nth-of-type(4), #bff:target ~ svg use:nth-of-type(5), #bff:target ~ svg use:nth-of-type(6), #bff:target ~ svg use:nth-of-type(7), #bff:target ~ svg use:nth-of-type(8), #bff:target ~ svg use:nth-of-type(9), #bff:target ~ svg use:nth-of-type(10), #bff:target ~ svg use:nth-of-type(11), #bff:target ~ svg use:nth-of-type(12), #bff:target ~ svg use:nth-of-type(13), #bff:target ~ svg use:nth-of-type(14), #bff:target ~ svg use:nth-of-type(15), #bff:target ~ svg use:nth-of-type(16), #bff:target ~ svg use:nth-of-type(17), #bff:target ~ svg use:nth-of-type(18), #bff:target ~ svg use:nth-of-type(19), #bff:target ~ svg use:nth-of-type(20), #bff:target ~ svg use:nth-of-type(21), #bff:target ~ svg use:nth-of-type(22), #bff:target ~ svg use:nth-of-type(23), #bff:target ~ svg use:nth-of-type(24), #bff:target ~ svg use:nth-of-type(25), #bff:target ~ svg use:nth-of-type(26), #bff:target ~ svg use:nth-of-type(27), #bff:target ~ svg use:nth-of-type(28), #bff:target ~ svg use:nth-of-type(29), #bff:target ~ svg use:nth-of-type(30), #bff:target ~ svg use:nth-of-type(31), #bff:target ~ svg use:nth-of-type(32), #bff:target ~ svg use:nth-of-type(33) {
+  --size: 10px;
+}
+
+#bff:target ~ svg use:nth-of-type(3), #bff:target ~ svg use:nth-of-type(4), #bff:target ~ svg use:nth-of-type(5), #bff:target ~ svg use:nth-of-type(6), #bff:target ~ svg use:nth-of-type(7), #bff:target ~ svg use:nth-of-type(8), #bff:target ~ svg use:nth-of-type(9), #bff:target ~ svg use:nth-of-type(10), #bff:target ~ svg use:nth-of-type(11), #bff:target ~ svg use:nth-of-type(12), #bff:target ~ svg use:nth-of-type(13), #bff:target ~ svg use:nth-of-type(14), #bff:target ~ svg use:nth-of-type(15), #bff:target ~ svg use:nth-of-type(16), #bff:target ~ svg use:nth-of-type(17), #bff:target ~ svg use:nth-of-type(18), #bff:target ~ svg use:nth-of-type(19), #bff:target ~ svg use:nth-of-type(20), #bff:target ~ svg use:nth-of-type(21), #bff:target ~ svg use:nth-of-type(22), #bff:target ~ svg use:nth-of-type(23), #bff:target ~ svg use:nth-of-type(24), #bff:target ~ svg use:nth-of-type(25), #bff:target ~ svg use:nth-of-type(26), #bff:target ~ svg use:nth-of-type(27), #bff:target ~ svg use:nth-of-type(28), #bff:target ~ svg use:nth-of-type(29), #bff:target ~ svg use:nth-of-type(30), #bff:target ~ svg use:nth-of-type(31), #bff:target ~ svg use:nth-of-type(32), #bff:target ~ svg use:nth-of-type(33) {
+  --thikness: 1px;
+}
+
+#bff:target ~ svg use:nth-of-type(1), #bff:target ~ svg use:nth-of-type(2) {
+  --thikness: 10px;
+}
+
+#bff:target ~ svg use:nth-of-type(1), #bff:target ~ svg use:nth-of-type(2) {
+  --rotate: 45deg;
+}
+
+#bff:target ~ svg use:nth-of-type(1), #bff:target ~ svg use:nth-of-type(2) {
+  --rx: 50px;
+}
+
+@keyframes pixel3 {
+  from {
+    transform: translate(-30px, 20px);
+  }
+  20% {
+    transform: translate(-50px, -20px);
+  }
+  50% {
+    transform: translate(-50px, -20px);
+  }
+  70% {
+    transform: translate(-30px, 20px);
+  }
+  to {
+    transform: translate(-30px, 20px);
+  }
+}
+@keyframes pixel4 {
+  from {
+    transform: translate(-50px, -20px);
+  }
+  20% {
+    transform: translate(-30px, 20px);
+  }
+  50% {
+    transform: translate(-30px, 20px);
+  }
+  70% {
+    transform: translate(-50px, -20px);
+  }
+  to {
+    transform: translate(-50px, -20px);
+  }
+}
+@keyframes pixel5 {
+  from {
+    transform: translate(-40px, 20px);
+  }
+  20% {
+    transform: translate(-50px, 10px);
+  }
+  50% {
+    transform: translate(-50px, 10px);
+  }
+  70% {
+    transform: translate(-40px, 20px);
+  }
+  to {
+    transform: translate(-40px, 20px);
+  }
+}
+@keyframes pixel6 {
+  from {
+    transform: translate(-40px, -20px);
+  }
+  20% {
+    transform: translate(-40px, -20px);
+  }
+  50% {
+    transform: translate(-40px, -20px);
+  }
+  70% {
+    transform: translate(-40px, -20px);
+  }
+  to {
+    transform: translate(-40px, -20px);
+  }
+}
+@keyframes pixel7 {
+  from {
+    transform: translate(-50px, 20px);
+  }
+  20% {
+    transform: translate(-40px, 20px);
+  }
+  50% {
+    transform: translate(-40px, 20px);
+  }
+  70% {
+    transform: translate(-50px, 20px);
+  }
+  to {
+    transform: translate(-50px, 20px);
+  }
+}
+@keyframes pixel8 {
+  from {
+    transform: translate(-30px, -20px);
+  }
+  20% {
+    transform: translate(-30px, -20px);
+  }
+  50% {
+    transform: translate(-30px, -20px);
+  }
+  70% {
+    transform: translate(-30px, -20px);
+  }
+  to {
+    transform: translate(-30px, -20px);
+  }
+}
+@keyframes pixel9 {
+  from {
+    transform: translate(-50px, -10px);
+  }
+  20% {
+    transform: translate(-50px, 0px);
+  }
+  50% {
+    transform: translate(-50px, 0px);
+  }
+  70% {
+    transform: translate(-50px, -10px);
+  }
+  to {
+    transform: translate(-50px, -10px);
+  }
+}
+@keyframes pixel10 {
+  from {
+    transform: translate(-30px, 10px);
+  }
+  20% {
+    transform: translate(-50px, 20px);
+  }
+  50% {
+    transform: translate(-50px, 20px);
+  }
+  70% {
+    transform: translate(-30px, 10px);
+  }
+  to {
+    transform: translate(-30px, 10px);
+  }
+}
+@keyframes pixel11 {
+  from {
+    transform: translate(-50px, 0px);
+  }
+  20% {
+    transform: translate(-50px, -10px);
+  }
+  50% {
+    transform: translate(-50px, -10px);
+  }
+  70% {
+    transform: translate(-50px, 0px);
+  }
+  to {
+    transform: translate(-50px, 0px);
+  }
+}
+@keyframes pixel12 {
+  from {
+    transform: translate(-30px, 0px);
+  }
+  20% {
+    transform: translate(10px, 20px);
+  }
+  50% {
+    transform: translate(10px, 20px);
+  }
+  70% {
+    transform: translate(-30px, 0px);
+  }
+  to {
+    transform: translate(-30px, 0px);
+  }
+}
+@keyframes pixel13 {
+  from {
+    transform: translate(-40px, 0px);
+  }
+  20% {
+    transform: translate(-10px, -20px);
+  }
+  50% {
+    transform: translate(-10px, -20px);
+  }
+  70% {
+    transform: translate(-40px, 0px);
+  }
+  to {
+    transform: translate(-40px, 0px);
+  }
+}
+@keyframes pixel14 {
+  from {
+    transform: translate(-10px, -20px);
+  }
+  20% {
+    transform: translate(0px, 20px);
+  }
+  50% {
+    transform: translate(0px, 20px);
+  }
+  70% {
+    transform: translate(-10px, -20px);
+  }
+  to {
+    transform: translate(-10px, -20px);
+  }
+}
+@keyframes pixel15 {
+  from {
+    transform: translate(10px, -20px);
+  }
+  20% {
+    transform: translate(0px, -20px);
+  }
+  50% {
+    transform: translate(0px, -20px);
+  }
+  70% {
+    transform: translate(10px, -20px);
+  }
+  to {
+    transform: translate(10px, -20px);
+  }
+}
+@keyframes pixel16 {
+  from {
+    transform: translate(-10px, -10px);
+  }
+  20% {
+    transform: translate(-10px, 20px);
+  }
+  50% {
+    transform: translate(-10px, 20px);
+  }
+  70% {
+    transform: translate(-10px, -10px);
+  }
+  to {
+    transform: translate(-10px, -10px);
+  }
+}
+@keyframes pixel17 {
+  from {
+    transform: translate(10px, -10px);
+  }
+  20% {
+    transform: translate(10px, -20px);
+  }
+  50% {
+    transform: translate(10px, -20px);
+  }
+  70% {
+    transform: translate(10px, -10px);
+  }
+  to {
+    transform: translate(10px, -10px);
+  }
+}
+@keyframes pixel18 {
+  from {
+    transform: translate(-10px, 0px);
+  }
+  20% {
+    transform: translate(-10px, -10px);
+  }
+  50% {
+    transform: translate(-10px, -10px);
+  }
+  70% {
+    transform: translate(-10px, 0px);
+  }
+  to {
+    transform: translate(-10px, 0px);
+  }
+}
+@keyframes pixel19 {
+  from {
+    transform: translate(10px, 0px);
+  }
+  20% {
+    transform: translate(10px, 10px);
+  }
+  50% {
+    transform: translate(10px, 10px);
+  }
+  70% {
+    transform: translate(10px, 0px);
+  }
+  to {
+    transform: translate(10px, 0px);
+  }
+}
+@keyframes pixel20 {
+  from {
+    transform: translate(-10px, 10px);
+  }
+  20% {
+    transform: translate(-10px, 0px);
+  }
+  50% {
+    transform: translate(-10px, 0px);
+  }
+  70% {
+    transform: translate(-10px, 10px);
+  }
+  to {
+    transform: translate(-10px, 10px);
+  }
+}
+@keyframes pixel21 {
+  from {
+    transform: translate(10px, 10px);
+  }
+  20% {
+    transform: translate(10px, 0px);
+  }
+  50% {
+    transform: translate(10px, 0px);
+  }
+  70% {
+    transform: translate(10px, 10px);
+  }
+  to {
+    transform: translate(10px, 10px);
+  }
+}
+@keyframes pixel22 {
+  from {
+    transform: translate(0px, 20px);
+  }
+  20% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  70% {
+    transform: translate(0px, 20px);
+  }
+  to {
+    transform: translate(0px, 20px);
+  }
+}
+@keyframes pixel23 {
+  from {
+    transform: translate(30px, -20px);
+  }
+  20% {
+    transform: translate(50px, 20px);
+  }
+  50% {
+    transform: translate(50px, 20px);
+  }
+  70% {
+    transform: translate(30px, -20px);
+  }
+  to {
+    transform: translate(30px, -20px);
+  }
+}
+@keyframes pixel24 {
+  from {
+    transform: translate(50px, 10px);
+  }
+  20% {
+    transform: translate(30px, -20px);
+  }
+  50% {
+    transform: translate(30px, -20px);
+  }
+  70% {
+    transform: translate(50px, 10px);
+  }
+  to {
+    transform: translate(50px, 10px);
+  }
+}
+@keyframes pixel25 {
+  from {
+    transform: translate(40px, -20px);
+  }
+  20% {
+    transform: translate(40px, 20px);
+  }
+  50% {
+    transform: translate(40px, 20px);
+  }
+  70% {
+    transform: translate(40px, -20px);
+  }
+  to {
+    transform: translate(40px, -20px);
+  }
+}
+@keyframes pixel26 {
+  from {
+    transform: translate(30px, 20px);
+  }
+  20% {
+    transform: translate(40px, -20px);
+  }
+  50% {
+    transform: translate(40px, -20px);
+  }
+  70% {
+    transform: translate(30px, 20px);
+  }
+  to {
+    transform: translate(30px, 20px);
+  }
+}
+@keyframes pixel27 {
+  from {
+    transform: translate(40px, 20px);
+  }
+  20% {
+    transform: translate(30px, 20px);
+  }
+  50% {
+    transform: translate(30px, 20px);
+  }
+  70% {
+    transform: translate(40px, 20px);
+  }
+  to {
+    transform: translate(40px, 20px);
+  }
+}
+@keyframes pixel28 {
+  from {
+    transform: translate(50px, -20px);
+  }
+  20% {
+    transform: translate(50px, -20px);
+  }
+  50% {
+    transform: translate(50px, -20px);
+  }
+  70% {
+    transform: translate(50px, -20px);
+  }
+  to {
+    transform: translate(50px, -20px);
+  }
+}
+@keyframes pixel29 {
+  from {
+    transform: translate(50px, 20px);
+  }
+  20% {
+    transform: translate(30px, -10px);
+  }
+  50% {
+    transform: translate(30px, -10px);
+  }
+  70% {
+    transform: translate(50px, 20px);
+  }
+  to {
+    transform: translate(50px, 20px);
+  }
+}
+@keyframes pixel30 {
+  from {
+    transform: translate(30px, -10px);
+  }
+  20% {
+    transform: translate(50px, 10px);
+  }
+  50% {
+    transform: translate(50px, 10px);
+  }
+  70% {
+    transform: translate(30px, -10px);
+  }
+  to {
+    transform: translate(30px, -10px);
+  }
+}
+@keyframes pixel31 {
+  from {
+    transform: translate(30px, 0px);
+  }
+  20% {
+    transform: translate(30px, 0px);
+  }
+  50% {
+    transform: translate(30px, 0px);
+  }
+  70% {
+    transform: translate(30px, 0px);
+  }
+  to {
+    transform: translate(30px, 0px);
+  }
+}
+@keyframes pixel32 {
+  from {
+    transform: translate(50px, 0px);
+  }
+  20% {
+    transform: translate(50px, 0px);
+  }
+  50% {
+    transform: translate(50px, 0px);
+  }
+  70% {
+    transform: translate(50px, 0px);
+  }
+  to {
+    transform: translate(50px, 0px);
+  }
+}
+@keyframes pixel33 {
+  from {
+    transform: translate(30px, 10px);
+  }
+  20% {
+    transform: translate(40px, 0px);
+  }
+  50% {
+    transform: translate(40px, 0px);
+  }
+  70% {
+    transform: translate(30px, 10px);
+  }
+  to {
+    transform: translate(30px, 10px);
+  }
+}
+@keyframes outer {
+  from {
+    stroke-dasharray: 0 100px;
+  }
+  to {
+    stroke-dasharray: 100px 100px;
+  }
+}
+@keyframes inner {
+  from {
+    stroke: white;
+    fill: rgba(255, 255, 255, 0);
+  }
+  to {
+    stroke: rgba(255, 255, 255, 0);
+    fill: white;
+  }
+}
+#bff:target ~ svg rect {
+  --color: hsl(0, 45%, 50%);
+  --rotate: 45deg;
+  --thikness: 10px;
+  --size: 40px;
+  --y: 5px;
+}
+
+#bff:target ~ svg text {
+  stroke: white;
+  stroke-width: 0.1px;
+  animation: 15s forwards outer, 1s 3s forwards inner;
+}
+
+#bff:target ~ svg use:nth-of-type(1) {
+  --y: -10px;
+  --x: -15px;
+  --size: 40px;
+}
+
+#bff:target ~ svg use:nth-of-type(2) {
+  --y: -10px;
+  --x: 15px;
+  --size: 40px;
+}
+
+#bff:target ~ svg use:nth-of-type(3) {
+  animation: 6s ease 0s infinite pixel3;
+}
+
+#bff:target ~ svg use:nth-of-type(4) {
+  animation: 6s ease 0s infinite pixel4;
+}
+
+#bff:target ~ svg use:nth-of-type(5) {
+  animation: 6s ease 0s infinite pixel5;
+}
+
+#bff:target ~ svg use:nth-of-type(6) {
+  animation: 6s ease 0s infinite pixel6;
+}
+
+#bff:target ~ svg use:nth-of-type(7) {
+  animation: 6s ease 0s infinite pixel7;
+}
+
+#bff:target ~ svg use:nth-of-type(8) {
+  animation: 6s ease 0s infinite pixel8;
+}
+
+#bff:target ~ svg use:nth-of-type(9) {
+  animation: 6s ease 0s infinite pixel9;
+}
+
+#bff:target ~ svg use:nth-of-type(10) {
+  animation: 6s ease 0s infinite pixel10;
+}
+
+#bff:target ~ svg use:nth-of-type(11) {
+  animation: 6s ease 0s infinite pixel11;
+}
+
+#bff:target ~ svg use:nth-of-type(12) {
+  animation: 6s ease 0s infinite pixel12;
+}
+
+#bff:target ~ svg use:nth-of-type(13) {
+  animation: 6s ease 0s infinite pixel13;
+}
+
+#bff:target ~ svg use:nth-of-type(14) {
+  animation: 6s ease 0s infinite pixel14;
+}
+
+#bff:target ~ svg use:nth-of-type(15) {
+  animation: 6s ease 0s infinite pixel15;
+}
+
+#bff:target ~ svg use:nth-of-type(16) {
+  animation: 6s ease 0s infinite pixel16;
+}
+
+#bff:target ~ svg use:nth-of-type(17) {
+  animation: 6s ease 0s infinite pixel17;
+}
+
+#bff:target ~ svg use:nth-of-type(18) {
+  animation: 6s ease 0s infinite pixel18;
+}
+
+#bff:target ~ svg use:nth-of-type(19) {
+  animation: 6s ease 0s infinite pixel19;
+}
+
+#bff:target ~ svg use:nth-of-type(20) {
+  animation: 6s ease 0s infinite pixel20;
+}
+
+#bff:target ~ svg use:nth-of-type(21) {
+  animation: 6s ease 0s infinite pixel21;
+}
+
+#bff:target ~ svg use:nth-of-type(22) {
+  animation: 6s ease 0s infinite pixel22;
+}
+
+#bff:target ~ svg use:nth-of-type(23) {
+  animation: 6s ease 0s infinite pixel23;
+}
+
+#bff:target ~ svg use:nth-of-type(24) {
+  animation: 6s ease 0s infinite pixel24;
+}
+
+#bff:target ~ svg use:nth-of-type(25) {
+  animation: 6s ease 0s infinite pixel25;
+}
+
+#bff:target ~ svg use:nth-of-type(26) {
+  animation: 6s ease 0s infinite pixel26;
+}
+
+#bff:target ~ svg use:nth-of-type(27) {
+  animation: 6s ease 0s infinite pixel27;
+}
+
+#bff:target ~ svg use:nth-of-type(28) {
+  animation: 6s ease 0s infinite pixel28;
+}
+
+#bff:target ~ svg use:nth-of-type(29) {
+  animation: 6s ease 0s infinite pixel29;
+}
+
+#bff:target ~ svg use:nth-of-type(30) {
+  animation: 6s ease 0s infinite pixel30;
+}
+
+#bff:target ~ svg use:nth-of-type(31) {
+  animation: 6s ease 0s infinite pixel31;
+}
+
+#bff:target ~ svg use:nth-of-type(32) {
+  animation: 6s ease 0s infinite pixel32;
+}
+
+#bff:target ~ svg use:nth-of-type(33) {
+  animation: 6s ease 0s infinite pixel33;
+}
+
+/*# sourceMappingURL=styles.css.map */

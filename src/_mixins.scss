@@ -1,0 +1,33 @@
+@use "sass:meta";
+
+@mixin use($index, $args...) {
+  use:nth-of-type(#{$index}) {
+    @content;
+    @each $key, $value in meta.keywords($args) {
+      // @debug "#{$key} : #{$value}";
+           @if $key == 'color'    and $value == white { @extend %isWhite; }
+      @else if $key == 'color'    and $value == grey  { @extend %isGrey; }
+      @else if $key == 'color'    and $value == hsl(0, 45%, 50%)  { @extend %isRed; }
+      @else if $key == 'size'     and $value == 10px  { @extend %isBaseSize; }
+      @else if $key == 'rx'       and $value == 50%   { @extend %isRound; }
+      @else if $key == 'thikness' and $value == 1px   { @extend %isThik; }
+      @else if $key == 'thikness' and $value == 10px  { @extend %isThiker; }
+      @else if $key == 'rotate'   and $value == 45deg { @extend %isRotated; }
+      @else {
+        --#{$key}: #{$value};
+      }
+    }
+  }
+}
+
+%isRed { --color: hsl(0, 45%, 50%); }
+%isGrey { --color: grey; }
+%isWhite { --color: white; }
+
+%isBaseSize { --size: 10px; }
+
+%isThik { --thikness: 1px; }
+%isThiker { --thikness: 10px; }
+
+%isRotated { --rotate: 45deg; }
+%isRound { --rx: 50px; }

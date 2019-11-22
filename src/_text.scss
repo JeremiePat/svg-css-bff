@@ -1,0 +1,39 @@
+@use "sass:list";
+
+$c: (0,0) (2,4) (0,3) (1,0) (1,4) (2,0) (0,2) (0,4) (0,1);
+$g: (0,0) (2,3) (1,0) (0,4) (1,4) (2,0) (2,4) (0,1) (0,2) (2,2) (0,3);
+$s: (2,4) (0,0) (1,4) (1,0) (0,4) (2,0) (0,1) (2,3) (0,2) (2,2) (1,2);
+$v: (0,0) (2,0) (0,1) (2,1) (0,2) (2,2) (0,3) (2,3) (1,4);
+
+@function getLetterPixelCoords($letter, $size, $dx, $dy) {
+  $coords: ();
+  // @debug 'LETTER: #{$letter}';
+  // @debug 'SIZE: #{$size}';
+  // @debug 'DX: #{$dx}';
+  // @debug 'DY: #{$dy}';
+
+  @each $px, $py in $letter {
+    $x: $dx + $px * $size;
+    $y: $dy + $py * $size;
+
+    $coords: list.append($coords, ($x, $y));
+  }
+
+  @return $coords;
+}
+
+@function getTextPixelCoords($size, $letters...) {
+  $dy: -2 * $size;
+  $coords: ();
+
+  @for $n from 1 to list.length($letters) + 1 {
+    $dx: 4 * ($n - 1) * $size - 5 * $size;
+    $letter: list.nth($letters, $n);
+    $coords: list.join($coords, getLetterPixelCoords($letter, $size, $dx, $dy));
+  }
+
+  @return $coords;
+}
+
+$svg: getTextPixelCoords(10px, $s, $v, $g);
+$css: getTextPixelCoords(10px, $c, $s, $s);

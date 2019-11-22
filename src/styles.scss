@@ -1,0 +1,12 @@
+@use "sass:meta";
+
+@use "base" with (
+  $size: 5vmin
+);
+
+@use "nav";
+
+@each $mod in nav.$nav {
+  // @debug $mod;
+  @include meta.load-css("steps/#{$mod}");
+}

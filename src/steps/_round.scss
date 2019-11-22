@@ -1,0 +1,10 @@
+#round:target ~ svg {
+  --color: hsl(0, 45%, 50%);
+  --rx: 50%;
+  --rotate: 45deg;
+  --size: 40px;
+
+  rect {
+    --size: 60px;
+  }
+}

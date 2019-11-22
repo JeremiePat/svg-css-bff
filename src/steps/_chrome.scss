@@ -1,0 +1,29 @@
+@use "../mixins" as mx;
+
+#chrome:target ~ svg {
+  rect {
+    --color: #C03;
+    mask: url(#mask);
+  }
+
+  > {
+    @include mx.use(1, $color: #019934) {
+      mask: url(#mask);
+      transform: rotate(-120deg);
+    }
+
+    @include mx.use(2, $color: #FDD20A) {
+      mask: url(#mask);
+      transform: rotate(-240deg);
+    }
+
+    @include mx.use(3, $size: 19px, $rx:50%, $color: #0099FF, $border: white, $thikness: 1.5px);
+  }
+
+  mask {
+    @include mx.use(1, $size: 100px, $color: black);
+    @include mx.use(2, $size: 50px, $rx: 50%, $color: white);
+    @include mx.use(3, $size: 40px, $thikness: 20px, $x: 20px, $y: 20px, $color: black);
+    @include mx.use(4, $size: 100px, $rotate: 150deg, $x: -40px, $y: 51px, $color: black  );
+  }
+}

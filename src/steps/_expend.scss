@@ -1,0 +1,23 @@
+@use "../mixins" as mx;
+
+#expend:target ~ svg {
+  $steps: 4;
+  $angle: 360deg / ($steps + 1);
+  $dist: 100px;
+  $px: $dist / $steps;
+  $mid: $dist / -2;
+
+  rect {
+    --color: hsla(0, 100%, 50%, 0.5);
+    transform: perspective($dist * 3) rotateY(-35deg) translateZ($mid);
+  }
+
+  @for $i from 1 to $steps + 1 {
+    @include mx.use($i, $color: 'hsla(#{$i * $angle}, 100%, 50%, 0.5)') {
+      transform:
+        perspective(#{$dist * 3})
+        rotateY(-35deg)
+        translateZ(#{$mid + ($i * $px)});
+    }
+  }
+}

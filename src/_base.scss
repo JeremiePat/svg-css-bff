@@ -1,0 +1,98 @@
+$color-background: #222 !default;
+$color-forground: white !default;
+$size: 10px !default;
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color: transparent;
+}
+
+html, body {
+  height:  100%;
+  margin:  0;
+  padding: 0;
+  background: $color-background;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+text {
+  font: 8px Kalam, "Noteworthy", "Bradley Hand", "Brush Script MT", sans-serif;
+  text-anchor: middle;
+  fill: none;
+}
+
+span {
+  display: none;
+}
+
+svg {
+  width: 16 * $size;
+  height: 10 * $size;
+  margin: 0 (0.5 * $size);
+
+  order: 2;
+
+  &.debug {
+    background: white;
+
+    path {
+      stroke: black;
+      stroke-width: 0.1px;
+    }
+  }
+
+  ~ a {
+    width: 1.5 * $size;
+    display: none;
+
+    color: $color-forground;
+    text-decoration: none;
+
+    opacity: 0.25;
+
+    &:hover {
+      opacity: 0.75;
+    }
+
+    &:before {
+      content: '▶︎';
+
+      display: block;
+      width: 1.5 * $size;
+      height: 1.5 * $size;
+      border: 2px solid $color-forground;
+      border-radius: 50%;
+
+      font-size: 0.75 * $size;
+      text-align: center;
+      line-height: 1.7 * $size;
+      text-indent: 0.14 * $size;
+    }
+  }
+}
+
+rect {
+  fill: var(--color, grey);
+  stroke: var(--border, var(--color, grey));
+  stroke-width: var(--thikness, 0);
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: var(--length, 100px) calc(100px - var(--length, 100px));
+
+  height: var(--size, 60px);
+  width: var(--size, 60px);
+  x: calc(-0.5 * var(--size, 60px));
+  y: calc(-0.5 * var(--size, 60px));
+  rx: var(--rx, 0);
+  transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--rotate, 0));
+
+  transition: all 500ms;
+}

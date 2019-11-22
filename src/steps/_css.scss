@@ -1,0 +1,14 @@
+@use "../mixins" as mx;
+@use "../text";
+
+$commons: ('size': 10px, 'thikness': 1px, 'color': white);
+
+#css:target ~ svg {
+  $i: 2;
+
+  @each $x, $y in text.$css {
+    $i: $i + 1;
+
+    @include mx.use($i, $x: $x, $y: $y, $commons...);
+  }
+}

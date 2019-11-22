@@ -1,0 +1,55 @@
+@use "sass:list";
+
+$nav:
+  'start',
+  'blush',
+  'round',
+  'heart',
+  'list',
+  'expend',
+  'flower',
+  'mountain',
+  'sunny',
+  'basic',
+  'chrome',
+  'css',
+  'svg',
+  'bff'
+  ;
+
+%display {
+  display: block;
+}
+
+%next {
+  order: 2;
+  &:before {
+    transform: scale(1, 1);
+  }
+}
+
+%prev {
+  order: 0;
+  &:before {
+    transform: scale(-1, 1);
+  }
+}
+
+$l: list.length($nav);
+@for $i from 1 to $l + 1 {
+  $current: list.nth($nav, $i);
+  $prev: if($i > 1, list.nth($nav, $i - 1), list.nth($nav, $l));
+  $next: if($i < $l, list.nth($nav, $i + 1), list.nth($nav, 1));
+
+  // @debug "#{$i}: #{$prev} < #{$current} > #{$next}";
+
+  ##{$current}:target ~ a[href='##{$prev}'] {
+    @extend %display;
+    @extend %prev;
+  }
+
+  ##{$current}:target ~ a[href='##{$next}'] {
+    @extend %display;
+    @extend %next;
+  }
+}

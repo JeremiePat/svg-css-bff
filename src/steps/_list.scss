@@ -1,0 +1,26 @@
+@use "../mixins" as mx;
+
+#list:target ~ svg {
+  --size: 20px;
+
+  rect {
+    --color: grey;
+    --x: -60px;
+    --y: -30px;
+  }
+
+  use {
+    --color: rgba(128, 128, 128, 0.5);
+  }
+
+  @for $i from 1 to 16 {
+    $x: -60px + (($i - 1) % 5 ) * 30px;
+    $y: -30px + (($i - 1) % 3) * 30px;
+
+    @include mx.use($i - 1, $x: $x, $y: $y);
+  }
+
+  use:nth-of-type(n+15) {
+    display: none;
+  }
+}

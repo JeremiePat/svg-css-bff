@@ -1,0 +1,40 @@
+@use "../mixins" as mx;
+
+#flower:target ~ svg {
+  @include mx.use(8,
+    $size: 100px,
+    $border: green,
+    $thikness: 5px,
+    $length: 25px,
+    $rotate: 220deg,
+    $x: 40px,
+    $y: 30px
+  ) {
+    --rx: 50%;
+  }
+
+  $vertex: (0,-10px), (-10px,-3px), (-6px,8px), (6px,8px), (10px,-3px);
+  $index: 9;
+
+  @each $x, $y in $vertex {
+    @include mx.use($index,
+      $size: 20px,
+      $x: $x,
+      $y: $y
+    ) {
+      --color: white;
+      --rx: 50%;
+    }
+
+    $index: $index + 1
+  }
+
+  @include mx.use(14,
+    $color: yellow,
+    $border: #FCE,
+    $thikness: 2px,
+    $size: 20px
+  ) {
+    --rx: 50%;
+  }
+}

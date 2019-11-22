@@ -1,0 +1,17 @@
+@use "../mixins" as mx;
+
+#heart:target ~ svg {
+  --color: hsl(0, 45%, 50%);
+  --rotate: 45deg;
+  --rx: 50%;
+  --thikness: 10px;
+  --size: 40px;
+
+  rect {
+    --rx: 0;
+    --y: 5px;
+  }
+
+  @include mx.use(1, $y: -10px, $x: -15px);
+  @include mx.use(2, $y: -10px, $x: 15px);
+}

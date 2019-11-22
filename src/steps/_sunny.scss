@@ -1,0 +1,39 @@
+@use "../mixins" as mx;
+
+$shapes: (
+   6: ('color': grey,  'rotate': 45deg, 'thikness': 10px, 'size': 100px, 'y': 60px, 'x': -40px),
+   8: ('color': white, 'rotate': 45deg, 'thikness': 6px,  'size': 20px,  'y': 0px,  'x': -40px),
+   9: ('color': white, 'rotate': 45deg, 'thikness': 4px,  'size': 5px,   'y': 3px,  'x': -25px),
+  10: ('color': white, 'rotate': 45deg, 'thikness': 4px,  'size': 8px,   'y': 6px,  'x': -56px),
+   7: ('color': grey,  'rotate': 45deg, 'thikness': 10px, 'size': 100px, 'y': 80px, 'x':  35px),
+  11: ('color': white, 'rotate': 45deg, 'thikness': 5px,  'size': 15px,  'y': 16px, 'x':  35px)
+);
+
+$sun: ('rx': 50%, 'color': #FFC, 'size': 30px, 'y': -25px, 'x': 45px);
+
+$clouds: (
+  3: ('color': white, 'rx': 50%, 'size': 40px, 'y':   0px, 'x':  70px),
+  4: ('color': white, 'rx': 50%, 'size': 40px, 'y': -50px, 'x': -70px),
+  5: ('color': white, 'rx': 50%, 'size': 45px, 'y': -40px, 'x': -10px)
+);
+
+#sunny:target ~ svg {
+  rect {
+    --color: hsl(200, 100%, 70%);
+    --size: 160px;
+  }
+
+  @each $index, $param in $shapes {
+    @include mx.use($index, $param...);
+  }
+
+  @include mx.use(2, $sun...) {
+    filter: url(#sun);
+  }
+
+  @each $index, $param in $clouds {
+    @include mx.use($index, $param...) {
+      filter: url(#cloud);
+    }
+  }
+}
