@@ -1,5 +1,5 @@
 @use "../mixins" as mx;
 
-#basic:target ~ svg {
+#base:target ~ svg {
   @include mx.use(1, $color: grey);
 }

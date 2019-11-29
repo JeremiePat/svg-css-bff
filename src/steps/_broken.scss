@@ -1,0 +1,25 @@
+@use "../mixins" as mx;
+
+$heart: ('color': hsl(0, 45%, 50%), 'rotate': 45deg, 'thikness': 10px, 'size': 40px);
+
+#broken:target ~ svg {
+  > {
+    @include mx.use(1, $y:   5px, $heart...) {
+      mask: url(#mask);
+    }
+    @include mx.use(2, $y: -10px, $x: -15px, $rx: 50%, $heart...){
+      mask: url(#mask);
+    }
+    @include mx.use(3, $y: -10px, $x: 15px,  $rx: 50%, $heart...){
+      mask: url(#mask);
+    }
+  }
+
+  mask {
+    @include mx.use(1, $size: 160px, $color: white);
+    @include mx.use(2, $size: 25px, $rotate: 45deg, $x:  6px, $y: -25px, $color: black);
+    @include mx.use(3, $size: 25px, $rotate: 45deg, $x:  4px, $y:  -5px, $color: black);
+    @include mx.use(4, $size: 25px, $rotate: 50deg, $x: 15px, $y: -25px, $color: white);
+    @include mx.use(5, $size: 25px, $rotate: 56deg, $x:  9px, $y:  -2px, $color: white);
+  }
+}

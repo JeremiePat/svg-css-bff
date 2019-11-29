@@ -1,0 +1,28 @@
+@use "../mixins" as mx;
+
+$body: ('color': hsl(140deg, 50%, 40%), 'rx': 50%);
+$eyes: ('color': hsl(  0deg, 80%, 50%), 'rx': 50%, 'size': 5px);
+$legs: ('border': hsl(140deg, 30%, 30%), 'rx': 50%, 'size': 30px, 'thikness': 2px, 'length': 20px);
+
+#bug:target ~ svg {
+  @include mx.use(1, $size: 30px, $body...) {
+    filter: url(#shadow);
+  }
+
+  @include mx.use(2, $size: 50px, $x: -20px, $y: 10px, $body...){
+    filter: url(#shadow);
+  }
+
+  @include mx.use(3, $size: 20px, $x: 15px, $y: -8px, $body...){
+    filter: url(#shadow);
+  }
+
+  @include mx.use(4,  $x:  16px, $y: -17px, $eyes...);
+  @include mx.use(5,  $x:  24px, $y:  -5px, $eyes...);
+  @include mx.use(6,  $x:  12px, $y:  20px, $legs...);
+  @include mx.use(7,  $x:   4px, $y:  22px, $rotate: 22deg, $legs...);
+  @include mx.use(8,  $x:  -4px, $y:  22px, $rotate: 45deg, $legs...);
+  @include mx.use(9,  $x: -11px, $y: -20px, $rotate: 45deg, $legs...);
+  @include mx.use(10, $x: -16px, $y: -14px, $rotate: 22deg, $legs...);
+  @include mx.use(11, $x: -19px, $y:  -8px, $legs...);
+}

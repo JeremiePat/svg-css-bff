@@ -1,38 +1,58 @@
 @use "sass:list";
 
 $nav:
-  'start',
+  'begin',
+  'base',
   'blush',
   'round',
   'heart',
   'list',
   'expend',
+  'masque',
   'flower',
-  'mountain',
+  'teapot',
   'sunny',
-  'basic',
   'chrome',
+  'bug',
+  'broken',
   'css',
   'svg',
   'bff'
   ;
+
+section li {
+  opacity: 0;
+  transition: opacity 2s;
+}
 
 %display {
   display: block;
 }
 
 %next {
-  order: 2;
+  order: 3;
   &:before {
     transform: scale(1, 1);
   }
 }
 
 %prev {
-  order: 0;
+  order: 1;
   &:before {
     transform: scale(-1, 1);
   }
+}
+
+%dimmed {
+  opacity: 0.5;
+}
+
+%verydimmed {
+  opacity: 0.25;
+}
+
+%visible {
+  opacity: 1;
 }
 
 $l: list.length($nav);
@@ -51,5 +71,50 @@ $l: list.length($nav);
   ##{$current}:target ~ a[href='##{$next}'] {
     @extend %display;
     @extend %next;
+  }
+
+  // Display side info
+  @if ($i >= 2) {
+    ##{$current}:target ~ .svg { @extend %dimmed; }
+    ##{$current}:target ~ .svg .rect { @extend %visible; }
+  }
+  @if ($i >= 3) {
+    ##{$current}:target ~ .css { @extend %dimmed; }
+    ##{$current}:target ~ .css .props { @extend %visible; }
+  }
+  @if ($i >= 4) {
+    ##{$current}:target ~ .css .geometry { @extend %visible; }
+  }
+  @if ($i >= 6) {
+    ##{$current}:target ~ .svg .use { @extend %visible; }
+  }
+  @if ($i >= 7) {
+    ##{$current}:target ~ .css .custom { @extend %visible; }
+    ##{$current}:target ~ .css .transform { @extend %visible; }
+  }
+  @if ($i >= 8) {
+    ##{$current}:target ~ section .mask { @extend %visible; }
+  }
+  @if ($i >= 9) {
+    ##{$current}:target ~ .svg .filter { @extend %visible; }
+  }
+  @if ($i >= 11) {
+    ##{$current}:target ~ .svg .gradient { @extend %visible; }
+  }
+  @if ($i >= 12) {
+    ##{$current}:target ~ .css { @extend %verydimmed; }
+    ##{$current}:target ~ .svg { @extend %verydimmed; }
+  }
+  @if ($i >= 14) {
+    ##{$current}:target ~ .css .transition { @extend %visible; }
+  }
+  @if ($i >= 15) {
+    ##{$current}:target ~ .css { @extend %visible; }
+  }
+  @if ($i >= 16) {
+    ##{$current}:target ~ .svg { @extend %visible; }
+  }
+  @if ($i >= 17) {
+    ##{$current}:target ~ section { display: none; }
   }
 }

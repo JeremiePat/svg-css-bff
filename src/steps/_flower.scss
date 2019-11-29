@@ -1,40 +1,35 @@
 @use "../mixins" as mx;
+@use "../calc";
 
-#flower:target ~ svg {
-  @include mx.use(8,
-    $size: 100px,
-    $border: green,
-    $thikness: 5px,
-    $length: 25px,
-    $rotate: 220deg,
-    $x: 40px,
-    $y: 30px
-  ) {
-    --rx: 50%;
-  }
+$stalk: ('border': green, 'thikness': 5px, 'rx': 50%, 'length': 25px);
 
-  $vertex: (0,-10px), (-10px,-3px), (-6px,8px), (6px,8px), (10px,-3px);
-  $index: 9;
+@mixin flower($index, $x, $y, $size) {
+  $vertex: calc.polygon($cx: $x, $cy: $y, $r: 0.8 * $size, $n: 5);
+
+  @include mx.use($index, $size: 4 * $size, $rotate: 216deg, $x: $x + 1.6 * $size, $y: $y + 1.2 * $size, $stalk...);
+  $index: $index + 1;
 
   @each $x, $y in $vertex {
-    @include mx.use($index,
-      $size: 20px,
-      $x: $x,
-      $y: $y
-    ) {
-      --color: white;
-      --rx: 50%;
+    @include mx.use($index, $size: $size, $x: $x, $y: $y, $color: white, $rx: $size / 2) {
+      filter: url(#shadow);
     }
 
-    $index: $index + 1
+    $index: $index + 1;
   }
 
-  @include mx.use(14,
+  @include mx.use($index,
     $color: yellow,
     $border: #FCE,
-    $thikness: 2px,
-    $size: 20px
-  ) {
-    --rx: 50%;
-  }
+    $thikness: 0.08 * $size,
+    $size: $size,
+    $rx: $size / 2,
+    $x: $x,
+    $y: $y
+  );
+}
+
+#flower:target ~ svg {
+  @include flower($index:  8, $x: -40px, $y: 15px, $size: 20px);
+  @include flower($index: 16, $x:  30px, $y: 20px, $size: 15px);
+  @include flower($index: 24, $x:   0px, $y:  0px, $size: 25px);
 }

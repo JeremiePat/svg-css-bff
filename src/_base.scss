@@ -1,6 +1,17 @@
 $color-background: #222 !default;
 $color-forground: white !default;
+$isChrome: false !default;
 $size: 10px !default;
+
+@keyframes outer {
+  from { stroke-dasharray: 0 100px; }
+  to { stroke-dasharray: 100px 100px; }
+}
+
+@keyframes inner {
+  from { stroke: rgba(255, 255, 255, 1); fill: rgba(255, 255, 255, 0) }
+  to { stroke: rgba(255, 255, 255, 0); fill: rgba(255, 255, 255, 1) }
+}
 
 * {
   box-sizing: border-box;
@@ -21,6 +32,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  font: 1rem/1.5 Kalam, "Noteworthy", "Bradley Hand", "Brush Script MT", sans-serif;
+  color: $color-forground;
 }
 
 text {
@@ -33,9 +47,44 @@ span {
   display: none;
 }
 
-svg {
-  width: 16 * $size;
-  height: 10 * $size;
+h1 {
+  color: $color-forground;
+  font-size: 4rem;
+
+  ~ * {
+    display: none;
+  }
+
+  span:target ~ & {
+    width: 0;
+    overflow: hidden;
+    color: $color-background;
+  }
+}
+
+
+h2 {
+  padding: 0 0 0.25rem;
+  border-bottom: 1px dashed;
+  margin: 0 0 0.75rem 0;
+}
+
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.25 * $size;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+span:target ~ svg {
+  display: block;
+  width: 8 * $size;
+  height: 5 * $size;
   margin: 0 (0.5 * $size);
 
   order: 2;
@@ -50,11 +99,10 @@ svg {
   }
 
   ~ a {
-    width: 1.5 * $size;
+    width: 0.5 * $size;
     display: none;
 
-    color: $color-forground;
-    text-decoration: none;
+    // color: $color-forground;
 
     opacity: 0.25;
 
@@ -66,16 +114,30 @@ svg {
       content: '▶︎';
 
       display: block;
-      width: 1.5 * $size;
-      height: 1.5 * $size;
+      width: 0.5 * $size;
+      height: 0.5 * $size;
       border: 2px solid $color-forground;
       border-radius: 50%;
 
-      font-size: 0.75 * $size;
+      font-size: 0.25 * $size;
       text-align: center;
-      line-height: 1.7 * $size;
-      text-indent: 0.14 * $size;
+      line-height: 0.57 * $size;
+      text-indent: 0.05 * $size;
     }
+  }
+
+  ~ section {
+    display: block;
+    white-space: nowrap;
+    width: 5.5 * $size;
+    height: 4 * $size;
+    margin: 0.6 * $size;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 300ms;
+
+    &:nth-of-type(1) { order: 0; }
+    &:nth-of-type(2) { order: 4; }
   }
 }
 
@@ -94,5 +156,8 @@ rect {
   rx: var(--rx, 0);
   transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--rotate, 0));
 
-  transition: all 500ms;
+  @if not $isChrome {
+    /* DOES NOT WORK WITH CHROME */
+    transition: all 600ms;
+  }
 }

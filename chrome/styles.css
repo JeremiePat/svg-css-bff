@@ -54,9 +54,11 @@ h1 {
   color: white;
   font-size: 4rem;
 }
+
 h1 ~ * {
   display: none;
 }
+
 span:target ~ h1 {
   width: 0;
   overflow: hidden;
@@ -88,21 +90,26 @@ span:target ~ svg {
   margin: 0 2.5vw;
   order: 2;
 }
+
 span:target ~ svg.debug {
   background: white;
 }
+
 span:target ~ svg.debug path {
   stroke: black;
   stroke-width: 0.1px;
 }
+
 span:target ~ svg ~ a {
   width: 2.5vw;
   display: none;
   opacity: 0.25;
 }
+
 span:target ~ svg ~ a:hover {
   opacity: 0.75;
 }
+
 span:target ~ svg ~ a:before {
   content: "▶︎";
   display: block;
@@ -115,6 +122,7 @@ span:target ~ svg ~ a:before {
   line-height: 2.85vw;
   text-indent: 0.25vw;
 }
+
 span:target ~ svg ~ section {
   display: block;
   white-space: nowrap;
@@ -125,9 +133,11 @@ span:target ~ svg ~ section {
   opacity: 0;
   transition: opacity 300ms;
 }
+
 span:target ~ svg ~ section:nth-of-type(1) {
   order: 0;
 }
+
 span:target ~ svg ~ section:nth-of-type(2) {
   order: 4;
 }
@@ -145,8 +155,6 @@ rect {
   y: calc(-0.5 * var(--size, 60px));
   rx: var(--rx, 0);
   transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--rotate, 0));
-  /* DOES NOT WORK WITH CHROME */
-  transition: all 600ms;
 }
 
 section li {
@@ -161,6 +169,7 @@ section li {
 #bff:target ~ a[href="#begin"], #svg:target ~ a[href="#bff"], #css:target ~ a[href="#svg"], #broken:target ~ a[href="#css"], #bug:target ~ a[href="#broken"], #chrome:target ~ a[href="#bug"], #sunny:target ~ a[href="#chrome"], #teapot:target ~ a[href="#sunny"], #flower:target ~ a[href="#teapot"], #masque:target ~ a[href="#flower"], #expend:target ~ a[href="#masque"], #list:target ~ a[href="#expend"], #heart:target ~ a[href="#list"], #round:target ~ a[href="#heart"], #blush:target ~ a[href="#round"], #base:target ~ a[href="#blush"], #begin:target ~ a[href="#base"] {
   order: 3;
 }
+
 #bff:target ~ a[href="#begin"]:before, #svg:target ~ a[href="#bff"]:before, #css:target ~ a[href="#svg"]:before, #broken:target ~ a[href="#css"]:before, #bug:target ~ a[href="#broken"]:before, #chrome:target ~ a[href="#bug"]:before, #sunny:target ~ a[href="#chrome"]:before, #teapot:target ~ a[href="#sunny"]:before, #flower:target ~ a[href="#teapot"]:before, #masque:target ~ a[href="#flower"]:before, #expend:target ~ a[href="#masque"]:before, #list:target ~ a[href="#expend"]:before, #heart:target ~ a[href="#list"]:before, #round:target ~ a[href="#heart"]:before, #blush:target ~ a[href="#round"]:before, #base:target ~ a[href="#blush"]:before, #begin:target ~ a[href="#base"]:before {
   transform: scale(1, 1);
 }
@@ -168,6 +177,7 @@ section li {
 #bff:target ~ a[href="#svg"], #svg:target ~ a[href="#css"], #css:target ~ a[href="#broken"], #broken:target ~ a[href="#bug"], #bug:target ~ a[href="#chrome"], #chrome:target ~ a[href="#sunny"], #sunny:target ~ a[href="#teapot"], #teapot:target ~ a[href="#flower"], #flower:target ~ a[href="#masque"], #masque:target ~ a[href="#expend"], #expend:target ~ a[href="#list"], #list:target ~ a[href="#heart"], #heart:target ~ a[href="#round"], #round:target ~ a[href="#blush"], #blush:target ~ a[href="#base"], #base:target ~ a[href="#begin"], #begin:target ~ a[href="#bff"] {
   order: 1;
 }
+
 #bff:target ~ a[href="#svg"]:before, #svg:target ~ a[href="#css"]:before, #css:target ~ a[href="#broken"]:before, #broken:target ~ a[href="#bug"]:before, #bug:target ~ a[href="#chrome"]:before, #chrome:target ~ a[href="#sunny"]:before, #sunny:target ~ a[href="#teapot"]:before, #teapot:target ~ a[href="#flower"]:before, #flower:target ~ a[href="#masque"]:before, #masque:target ~ a[href="#expend"]:before, #expend:target ~ a[href="#list"]:before, #list:target ~ a[href="#heart"]:before, #heart:target ~ a[href="#round"]:before, #round:target ~ a[href="#blush"]:before, #blush:target ~ a[href="#base"]:before, #base:target ~ a[href="#begin"]:before, #begin:target ~ a[href="#bff"]:before {
   transform: scale(-1, 1);
 }

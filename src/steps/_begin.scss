@@ -1,0 +1,10 @@
+@use "../mixins" as mx;
+
+#begin:target ~ svg {
+  text.onceuponatime {
+    font-size: 14px;
+    stroke: white;
+    stroke-width: 0.1px;
+    animation: 15s forwards outer, 1s 3s forwards inner;
+  }
+}

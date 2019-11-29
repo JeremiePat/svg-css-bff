@@ -1,7 +1,10 @@
+$isChrome: false !default;
+
 @use "sass:meta";
 
 @use "base" with (
-  $size: 5vmin
+  $isChrome: $isChrome,
+  $size: 5vw
 );
 
 @use "nav";

@@ -1,0 +1,33 @@
+@use "../mixins" as mx;
+
+@keyframes hero {
+  from { transform: translateY(-100px); opacity: 0; }
+  to   { transform: translateY(0px); opacity: 1;}
+}
+
+$myHero: 500ms 800ms both hero;
+
+#masque:target ~ svg {
+  > {
+    @include mx.use(1, $color: orange, $size: 100px);
+    @include mx.use(2, $color: white, $thikness: 5px, $size: 40px) {
+      mask: url(#mask);
+      animation: $myHero;
+    }
+    @include mx.use(3, $color: white, $thikness: 5px, $size: 40px, $x: -35px) {
+      mask: url(#mask);
+      animation: $myHero;
+    }
+    @include mx.use(4, $color: white, $thikness: 5px, $size: 40px, $x: 35px) {
+      mask: url(#mask);
+      animation: $myHero;
+    }
+  }
+
+  mask {
+    @include mx.use(1, $color: white, $size: 160px);
+    @include mx.use(2, $color: black, $size: 40px, $thikness: 10px, $y: 40px, $rotate: 45deg);
+    @include mx.use(3, $color: black, $size: 25px, $rx: 50%, $x: -30px, $rotate: 45deg);
+    @include mx.use(4, $color: black, $size: 25px, $rx: 50%, $x:  30px, $rotate: 45deg);
+  }
+}

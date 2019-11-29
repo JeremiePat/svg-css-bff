@@ -1,5 +1,5 @@
+@use "../mixins" as mx;
+
 #blush:target ~ svg {
-  rect {
-    --color: hsl(0, 45%, 50%);
-  }
+  @include mx.use(1, $color: hsl(0, 45%, 50%));
 }

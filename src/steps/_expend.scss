@@ -1,23 +1,29 @@
 @use "../mixins" as mx;
 
+$steps: 5;
+$angle: 360deg / $steps;
+$depth: 300px;
+$zMax:  50px;
+$zMin: -50px;
+$px: ($zMax - $zMin) / ($steps - 1);
+
 #expend:target ~ svg {
-  $steps: 4;
-  $angle: 360deg / ($steps + 1);
-  $dist: 100px;
-  $px: $dist / $steps;
-  $mid: $dist / -2;
+  @for $i from 6 to $steps + 6 {
+    $n: $i - 6;
+    $c: $steps + 6 - $i;
 
-  rect {
-    --color: hsla(0, 100%, 50%, 0.5);
-    transform: perspective($dist * 3) rotateY(-35deg) translateZ($mid);
-  }
+    @keyframes tr3d#{$i} {
+      from {
+        @include mx.perspective($depth: 0, $z: 0, $angle: 0);
+      }
 
-  @for $i from 1 to $steps + 1 {
-    @include mx.use($i, $color: 'hsla(#{$i * $angle}, 100%, 50%, 0.5)') {
-      transform:
-        perspective(#{$dist * 3})
-        rotateY(-35deg)
-        translateZ(#{$mid + ($i * $px)});
+      to   {
+        @include mx.perspective($depth: $depth, $z: $zMin + ($n * $px), $angle: -45deg);
+      }
+    }
+
+    @include mx.use($i, $color: 'hsla(#{$n * $angle}, 100%, 50%, 0.5)') {
+      animation: 500ms 600ms forwards tr3d#{$i};
     }
   }
 }

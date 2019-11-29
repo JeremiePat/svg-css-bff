@@ -1,39 +1,71 @@
 @use "../mixins" as mx;
 
-$shapes: (
-   6: ('color': grey,  'rotate': 45deg, 'thikness': 10px, 'size': 100px, 'y': 60px, 'x': -40px),
-   8: ('color': white, 'rotate': 45deg, 'thikness': 6px,  'size': 20px,  'y': 0px,  'x': -40px),
-   9: ('color': white, 'rotate': 45deg, 'thikness': 4px,  'size': 5px,   'y': 3px,  'x': -25px),
-  10: ('color': white, 'rotate': 45deg, 'thikness': 4px,  'size': 8px,   'y': 6px,  'x': -56px),
-   7: ('color': grey,  'rotate': 45deg, 'thikness': 10px, 'size': 100px, 'y': 80px, 'x':  35px),
-  11: ('color': white, 'rotate': 45deg, 'thikness': 5px,  'size': 15px,  'y': 16px, 'x':  35px)
+$clouds: (
+  2: ('color': white, 'size': 20px, 'rx': 50%, 'x': -30px, 'y': -30px),
+  3: ('color': white, 'size': 16px, 'rx': 50%, 'x': -37px, 'y': -28px),
+  4: ('color': white, 'size': 14px, 'rx': 50%, 'x': -23px, 'y': -29px),
+  5: ('color': white, 'size': 20px, 'rx': 50%, 'x': -60px, 'y': -40px),
+  6: ('color': white, 'size': 16px, 'rx': 50%, 'x': -67px, 'y': -40px),
+  7: ('color': white, 'size': 14px, 'rx': 50%, 'x': -53px, 'y': -39px)
+);
+
+$mountains: (
+  11: ('color': url('#lGradient'), 'rotate': 45deg, 'thikness': 10px, 'size': 100px, 'y':  65px, 'x': -40px),
+  12: ('color': white, 'rotate': 45deg, 'thikness': 6px,  'size': 20px,  'y': 5px,  'x': -40px),
+  13: ('color': white, 'rotate': 45deg, 'thikness': 4px,  'size': 5px,   'y': 8px,  'x': -25px),
+  14: ('color': white, 'rotate': 45deg, 'thikness': 4px,  'size': 8px,   'y': 11px, 'x': -56px),
+  10: ('color': url('#lGradient'),  'rotate': 45deg, 'thikness': 10px, 'size': 100px, 'y': 80px, 'x':  35px),
+  15: ('color': white, 'rotate': 45deg, 'thikness': 5px,  'size': 15px,  'y': 16px, 'x':  35px)
+);
+
+$hills: (
+  28: ('color': green, 'rx': 150px,'size': 300px,'y': 200px,'x': -50px),
+  29: ('color': green, 'rx': 150px,'size': 300px,'y': 195px,'x':  40px)
 );
 
 $sun: ('rx': 50%, 'color': #FFC, 'size': 30px, 'y': -25px, 'x': 45px);
-
-$clouds: (
-  3: ('color': white, 'rx': 50%, 'size': 40px, 'y':   0px, 'x':  70px),
-  4: ('color': white, 'rx': 50%, 'size': 40px, 'y': -50px, 'x': -70px),
-  5: ('color': white, 'rx': 50%, 'size': 45px, 'y': -40px, 'x': -10px)
-);
+$ray: ('color': #FFC, 'border': gold, 'y': -20px, 'rotate': 45deg, 'size': 40px, 'thikness': 1px);
 
 #sunny:target ~ svg {
-  rect {
-    --color: hsl(200, 100%, 70%);
-    --size: 160px;
-  }
+  > {
+    @include mx.use(1, $color: hsl(200, 100%, 70%), $size: 160px);
 
-  @each $index, $param in $shapes {
-    @include mx.use($index, $param...);
-  }
+    @each $index, $param in $clouds {
+      @include mx.use($index, $param...);
+    }
 
-  @include mx.use(2, $sun...) {
-    filter: url(#sun);
-  }
+    @each $index, $param in $mountains {
+      @include mx.use($index, $param...);
+    }
 
-  @each $index, $param in $clouds {
-    @include mx.use($index, $param...) {
-      filter: url(#cloud);
+    @each $index, $param in $hills {
+      @include mx.use($index, $param...) {
+        filter: url(#shadow);
+      }
+    }
+
+    @for $i from 16 to 28 {
+      @include mx.use($i, $ray...) {
+        transform: translate(45px, -25px) rotate(#{30deg * $i}) scale(0.4, 1.5);
+        mask: url(#mask);
+      }
+    }
+
+    @include mx.use(30, $sun...);
+
+    #rGradient {
+      stop:first-child { stop-color: rgba(255,255,255,1); }
+      stop:last-child { stop-color: rgba(255,255,255,0); }
+    }
+
+    #lGradient {
+      stop:first-child { stop-color: hsl(0, 0%, 60%); }
+      stop:last-child { stop-color: hsl(0, 0%, 30%); }
+    }
+
+    mask {
+      @include mx.use(1, $color: black, $size: 100px);
+      @include mx.use(2, $color: url('#rGradient'), $size: 50px, $rx: 50%);
     }
   }
 }

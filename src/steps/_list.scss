@@ -3,24 +3,19 @@
 #list:target ~ svg {
   --size: 20px;
 
-  rect {
-    --color: grey;
-    --x: -60px;
-    --y: -30px;
-  }
-
-  use {
-    --color: rgba(128, 128, 128, 0.5);
-  }
-
+  $r: -1;
   @for $i from 1 to 16 {
-    $x: -60px + (($i - 1) % 5 ) * 30px;
-    $y: -30px + (($i - 1) % 3) * 30px;
+    $c: ($i - 1) % 5;
+    $r: if($c % 5 == 0, $r + 1, $r);
 
-    @include mx.use($i - 1, $x: $x, $y: $y);
+    $x: -60px + $c * 30px;
+    $y: -30px + $r * 30px;
+    $o: if($i == 1, 1, 0.5);
+
+    @include mx.use($i, $x: $x, $y: $y, $color: rgba(128, 128, 128, $o));
   }
 
-  use:nth-of-type(n+15) {
+  use:nth-of-type(n+16) {
     display: none;
   }
 }

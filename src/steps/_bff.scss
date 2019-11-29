@@ -3,7 +3,7 @@
 @use "../text";
 
 $points: list.zip(text.$svg, text.$css);
-$i: 2;
+$i: 3;
 @each $pa, $pb in $points {
   $i: $i + 1;
 
@@ -16,36 +16,20 @@ $i: 2;
   }
 }
 
-@keyframes outer {
-  from { stroke-dasharray: 0 100px; }
-  to { stroke-dasharray: 100px 100px; }
-}
-
-@keyframes inner {
-  from { stroke: rgba(255, 255, 255, 1); fill: rgba(255, 255, 255, 0) }
-  to { stroke: rgba(255, 255, 255, 0); fill: rgba(255, 255, 255, 1) }
-}
-
 #bff:target ~ svg {
-  rect {
-    --color: hsl(0, 45%, 50%);
-    --rotate: 45deg;
-    --thikness: 10px;
-    --size: 40px;
-    --y: 5px;
-  }
-
-  text {
+  a text {
     stroke: white;
     stroke-width: 0.1px;
     animation: 15s forwards outer, 1s 3s forwards inner;
   }
 
-  @include mx.use(1, $y: -10px, $x: -15px, $color: hsl(0, 45%, 50%), $rotate: 45deg, $rx: 50%, $thikness: 10px, $size: 40px);
+  @include mx.use(1, $y: 5px, $color: hsl(0, 45%, 50%), $rotate: 45deg, $thikness: 10px, $size: 40px);
 
-  @include mx.use(2, $y: -10px, $x: 15px, $color: hsl(0, 45%, 50%), $rotate: 45deg, $rx: 50%, $thikness: 10px, $size: 40px);
+  @include mx.use(2, $y: -10px, $x: -15px, $color: hsl(0, 45%, 50%), $rotate: 45deg, $rx: 50%, $thikness: 10px, $size: 40px);
 
-  @for $i from 3 to list.length($points) + 3 {
+  @include mx.use(3, $y: -10px, $x: 15px, $color: hsl(0, 45%, 50%), $rotate: 45deg, $rx: 50%, $thikness: 10px, $size: 40px);
+
+  @for $i from 4 to list.length($points) + 4 {
     @include mx.use($i, $size: 10px, $thikness: 1px, $color: white) {
       animation: 6s ease 0s infinite pixel#{$i};
     }

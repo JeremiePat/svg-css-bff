@@ -1,10 +1,7 @@
-#round:target ~ svg {
-  --color: hsl(0, 45%, 50%);
-  --rx: 50%;
-  --rotate: 45deg;
-  --size: 40px;
+@use "../mixins" as mx;
 
-  rect {
-    --size: 60px;
-  }
+#round:target ~ svg {
+  @include mx.use(1, $size: 60px, $color: hsl(0, 45%, 50%), $rx: 50%, $rotate: 45deg);
+  @include mx.use(2, $size: 60px, $color: hsl(0, 45%, 50%), $rx: 50%, $rotate: 45deg);
+  @include mx.use(3, $size: 60px, $color: hsl(0, 45%, 50%), $rx: 50%, $rotate: 45deg);
 }
