@@ -187,7 +187,7 @@ section li {
 }
 
 #bff:target ~ .svg, #bff:target ~ .css, #svg:target ~ .svg, #svg:target ~ .css, #css:target ~ .svg, #css:target ~ .css, #broken:target ~ .svg, #broken:target ~ .css, #bug:target ~ .svg, #bug:target ~ .css, #chrome:target ~ .svg, #chrome:target ~ .css {
-  opacity: 0.25;
+  opacity: 0.1;
 }
 
 #bff:target ~ .svg, #bff:target ~ .css, #bff:target ~ .css .transition, #bff:target ~ .svg .gradient, #bff:target ~ .svg .filter, #bff:target ~ section .mask, #bff:target ~ .css .transform, #bff:target ~ .css .custom, #bff:target ~ .svg .use, #bff:target ~ .css .geometry, #bff:target ~ .css .props, #bff:target ~ .svg .rect, #svg:target ~ .svg, #svg:target ~ .css, #svg:target ~ .css .transition, #svg:target ~ .svg .gradient, #svg:target ~ .svg .filter, #svg:target ~ section .mask, #svg:target ~ .css .transform, #svg:target ~ .css .custom, #svg:target ~ .svg .use, #svg:target ~ .css .geometry, #svg:target ~ .css .props, #svg:target ~ .svg .rect, #css:target ~ .css, #css:target ~ .css .transition, #css:target ~ .svg .gradient, #css:target ~ .svg .filter, #css:target ~ section .mask, #css:target ~ .css .transform, #css:target ~ .css .custom, #css:target ~ .svg .use, #css:target ~ .css .geometry, #css:target ~ .css .props, #css:target ~ .svg .rect, #broken:target ~ .css .transition, #broken:target ~ .svg .gradient, #broken:target ~ .svg .filter, #broken:target ~ section .mask, #broken:target ~ .css .transform, #broken:target ~ .css .custom, #broken:target ~ .svg .use, #broken:target ~ .css .geometry, #broken:target ~ .css .props, #broken:target ~ .svg .rect, #bug:target ~ .svg .gradient, #bug:target ~ .svg .filter, #bug:target ~ section .mask, #bug:target ~ .css .transform, #bug:target ~ .css .custom, #bug:target ~ .svg .use, #bug:target ~ .css .geometry, #bug:target ~ .css .props, #bug:target ~ .svg .rect, #chrome:target ~ .svg .gradient, #chrome:target ~ .svg .filter, #chrome:target ~ section .mask, #chrome:target ~ .css .transform, #chrome:target ~ .css .custom, #chrome:target ~ .svg .use, #chrome:target ~ .css .geometry, #chrome:target ~ .css .props, #chrome:target ~ .svg .rect, #sunny:target ~ .svg .gradient, #sunny:target ~ .svg .filter, #sunny:target ~ section .mask, #sunny:target ~ .css .transform, #sunny:target ~ .css .custom, #sunny:target ~ .svg .use, #sunny:target ~ .css .geometry, #sunny:target ~ .css .props, #sunny:target ~ .svg .rect, #teapot:target ~ .svg .filter, #teapot:target ~ section .mask, #teapot:target ~ .css .transform, #teapot:target ~ .css .custom, #teapot:target ~ .svg .use, #teapot:target ~ .css .geometry, #teapot:target ~ .css .props, #teapot:target ~ .svg .rect, #flower:target ~ .svg .filter, #flower:target ~ section .mask, #flower:target ~ .css .transform, #flower:target ~ .css .custom, #flower:target ~ .svg .use, #flower:target ~ .css .geometry, #flower:target ~ .css .props, #flower:target ~ .svg .rect, #masque:target ~ section .mask, #masque:target ~ .css .transform, #masque:target ~ .css .custom, #masque:target ~ .svg .use, #masque:target ~ .css .geometry, #masque:target ~ .css .props, #masque:target ~ .svg .rect, #expend:target ~ .css .transform, #expend:target ~ .css .custom, #expend:target ~ .svg .use, #expend:target ~ .css .geometry, #expend:target ~ .css .props, #expend:target ~ .svg .rect, #list:target ~ .svg .use, #list:target ~ .css .geometry, #list:target ~ .css .props, #list:target ~ .svg .rect, #heart:target ~ .css .geometry, #heart:target ~ .css .props, #heart:target ~ .svg .rect, #round:target ~ .css .geometry, #round:target ~ .css .props, #round:target ~ .svg .rect, #blush:target ~ .css .props, #blush:target ~ .svg .rect, #base:target ~ .svg .rect {
@@ -202,7 +202,7 @@ section li {
   font-size: 14px;
   stroke: white;
   stroke-width: 0.1px;
-  animation: 15s forwards outer, 1s 3s forwards inner;
+  animation: 5s forwards outer, 1s 1s forwards inner;
 }
 
 #base:target ~ svg use:nth-of-type(1) {
@@ -833,133 +833,133 @@ section li {
 }
 
 #teapot:target ~ svg > use:nth-of-type(1) {
-  animation: 5s 350ms smoke1 infinite both;
+  animation: 5s -350ms smoke1 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(2) {
-  animation: 5s 700ms smoke2 infinite both;
+  animation: 5s -700ms smoke2 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(3) {
-  animation: 5s 1050ms smoke0 infinite both;
+  animation: 5s -1050ms smoke0 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(4) {
-  animation: 5s 1400ms smoke1 infinite both;
+  animation: 5s -1400ms smoke1 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(5) {
-  animation: 5s 1750ms smoke2 infinite both;
+  animation: 5s -1750ms smoke2 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(6) {
-  animation: 5s 2100ms smoke0 infinite both;
+  animation: 5s -2100ms smoke0 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(7) {
-  animation: 5s 2450ms smoke1 infinite both;
+  animation: 5s -2450ms smoke1 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(8) {
-  animation: 5s 2800ms smoke2 infinite both;
+  animation: 5s -2800ms smoke2 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(9) {
-  animation: 5s 3150ms smoke0 infinite both;
+  animation: 5s -3150ms smoke0 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(10) {
-  animation: 5s 3500ms smoke1 infinite both;
+  animation: 5s -3500ms smoke1 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(11) {
-  animation: 5s 3850ms smoke2 infinite both;
+  animation: 5s -3850ms smoke2 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(12) {
-  animation: 5s 4200ms smoke0 infinite both;
+  animation: 5s -4200ms smoke0 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(13) {
-  animation: 5s 4550ms smoke1 infinite both;
+  animation: 5s -4550ms smoke1 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(14) {
-  animation: 5s 4900ms smoke2 infinite both;
+  animation: 5s -4900ms smoke2 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(15) {
-  animation: 5s 5250ms smoke0 infinite both;
+  animation: 5s -5250ms smoke0 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(16) {
-  animation: 5s 5600ms smoke1 infinite both;
+  animation: 5s -5600ms smoke1 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(17) {
-  animation: 5s 5950ms smoke2 infinite both;
+  animation: 5s -5950ms smoke2 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(18) {
-  animation: 5s 6300ms smoke0 infinite both;
+  animation: 5s -6300ms smoke0 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(19) {
-  animation: 5s 6650ms smoke1 infinite both;
+  animation: 5s -6650ms smoke1 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(20) {
-  animation: 5s 7000ms smoke2 infinite both;
+  animation: 5s -7000ms smoke2 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(21) {
-  animation: 5s 7350ms smoke0 infinite both;
+  animation: 5s -7350ms smoke0 infinite both;
   --x: -47px;
   --y: -7px;
 }
 
 #teapot:target ~ svg > use:nth-of-type(22) {
-  animation: 5s 7700ms smoke1 infinite both;
+  animation: 5s -7700ms smoke1 infinite both;
   --x: -47px;
   --y: -7px;
 }
@@ -1479,10 +1479,6 @@ section li {
 }
 
 #css:target ~ svg use:nth-of-type(3), #css:target ~ svg use:nth-of-type(4), #css:target ~ svg use:nth-of-type(5), #css:target ~ svg use:nth-of-type(6), #css:target ~ svg use:nth-of-type(7), #css:target ~ svg use:nth-of-type(8), #css:target ~ svg use:nth-of-type(9), #css:target ~ svg use:nth-of-type(10), #css:target ~ svg use:nth-of-type(11), #css:target ~ svg use:nth-of-type(12), #css:target ~ svg use:nth-of-type(13), #css:target ~ svg use:nth-of-type(14), #css:target ~ svg use:nth-of-type(15), #css:target ~ svg use:nth-of-type(16), #css:target ~ svg use:nth-of-type(17), #css:target ~ svg use:nth-of-type(18), #css:target ~ svg use:nth-of-type(19), #css:target ~ svg use:nth-of-type(20), #css:target ~ svg use:nth-of-type(21), #css:target ~ svg use:nth-of-type(22), #css:target ~ svg use:nth-of-type(23), #css:target ~ svg use:nth-of-type(24), #css:target ~ svg use:nth-of-type(25), #css:target ~ svg use:nth-of-type(26), #css:target ~ svg use:nth-of-type(27), #css:target ~ svg use:nth-of-type(28), #css:target ~ svg use:nth-of-type(29), #css:target ~ svg use:nth-of-type(30), #css:target ~ svg use:nth-of-type(31), #css:target ~ svg use:nth-of-type(32), #css:target ~ svg use:nth-of-type(33) {
-  --color: white;
-}
-
-#css:target ~ svg use:nth-of-type(3), #css:target ~ svg use:nth-of-type(4), #css:target ~ svg use:nth-of-type(5), #css:target ~ svg use:nth-of-type(6), #css:target ~ svg use:nth-of-type(7), #css:target ~ svg use:nth-of-type(8), #css:target ~ svg use:nth-of-type(9), #css:target ~ svg use:nth-of-type(10), #css:target ~ svg use:nth-of-type(11), #css:target ~ svg use:nth-of-type(12), #css:target ~ svg use:nth-of-type(13), #css:target ~ svg use:nth-of-type(14), #css:target ~ svg use:nth-of-type(15), #css:target ~ svg use:nth-of-type(16), #css:target ~ svg use:nth-of-type(17), #css:target ~ svg use:nth-of-type(18), #css:target ~ svg use:nth-of-type(19), #css:target ~ svg use:nth-of-type(20), #css:target ~ svg use:nth-of-type(21), #css:target ~ svg use:nth-of-type(22), #css:target ~ svg use:nth-of-type(23), #css:target ~ svg use:nth-of-type(24), #css:target ~ svg use:nth-of-type(25), #css:target ~ svg use:nth-of-type(26), #css:target ~ svg use:nth-of-type(27), #css:target ~ svg use:nth-of-type(28), #css:target ~ svg use:nth-of-type(29), #css:target ~ svg use:nth-of-type(30), #css:target ~ svg use:nth-of-type(31), #css:target ~ svg use:nth-of-type(32), #css:target ~ svg use:nth-of-type(33) {
   --size: 10px;
 }
 
@@ -1493,160 +1489,187 @@ section li {
 #css:target ~ svg use:nth-of-type(3) {
   --x: -50px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(4) {
   --x: -30px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(5) {
   --x: -50px;
   --y: 10px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(6) {
   --x: -40px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(7) {
   --x: -40px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(8) {
   --x: -30px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(9) {
   --x: -50px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(10) {
   --x: -50px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(11) {
   --x: -50px;
   --y: -10px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(12) {
   --x: 10px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(13) {
   --x: -10px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(14) {
   --x: 0px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(15) {
   --x: 0px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(16) {
   --x: -10px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(17) {
   --x: 10px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(18) {
   --x: -10px;
   --y: -10px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(19) {
   --x: 10px;
   --y: 10px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(20) {
   --x: -10px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(21) {
   --x: 10px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(22) {
   --x: 0px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(23) {
   --x: 50px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(24) {
   --x: 30px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(25) {
   --x: 40px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(26) {
   --x: 40px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(27) {
   --x: 30px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(28) {
   --x: 50px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(29) {
   --x: 30px;
   --y: -10px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(30) {
   --x: 50px;
   --y: 10px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(31) {
   --x: 30px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(32) {
   --x: 50px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #css:target ~ svg use:nth-of-type(33) {
   --x: 40px;
   --y: 0px;
-}
-
-#svg:target ~ svg use:nth-of-type(3), #svg:target ~ svg use:nth-of-type(4), #svg:target ~ svg use:nth-of-type(5), #svg:target ~ svg use:nth-of-type(6), #svg:target ~ svg use:nth-of-type(7), #svg:target ~ svg use:nth-of-type(8), #svg:target ~ svg use:nth-of-type(9), #svg:target ~ svg use:nth-of-type(10), #svg:target ~ svg use:nth-of-type(11), #svg:target ~ svg use:nth-of-type(12), #svg:target ~ svg use:nth-of-type(13), #svg:target ~ svg use:nth-of-type(14), #svg:target ~ svg use:nth-of-type(15), #svg:target ~ svg use:nth-of-type(16), #svg:target ~ svg use:nth-of-type(17), #svg:target ~ svg use:nth-of-type(18), #svg:target ~ svg use:nth-of-type(19), #svg:target ~ svg use:nth-of-type(20), #svg:target ~ svg use:nth-of-type(21), #svg:target ~ svg use:nth-of-type(22), #svg:target ~ svg use:nth-of-type(23), #svg:target ~ svg use:nth-of-type(24), #svg:target ~ svg use:nth-of-type(25), #svg:target ~ svg use:nth-of-type(26), #svg:target ~ svg use:nth-of-type(27), #svg:target ~ svg use:nth-of-type(28), #svg:target ~ svg use:nth-of-type(29), #svg:target ~ svg use:nth-of-type(30), #svg:target ~ svg use:nth-of-type(31), #svg:target ~ svg use:nth-of-type(32), #svg:target ~ svg use:nth-of-type(33) {
-  --color: white;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(3), #svg:target ~ svg use:nth-of-type(4), #svg:target ~ svg use:nth-of-type(5), #svg:target ~ svg use:nth-of-type(6), #svg:target ~ svg use:nth-of-type(7), #svg:target ~ svg use:nth-of-type(8), #svg:target ~ svg use:nth-of-type(9), #svg:target ~ svg use:nth-of-type(10), #svg:target ~ svg use:nth-of-type(11), #svg:target ~ svg use:nth-of-type(12), #svg:target ~ svg use:nth-of-type(13), #svg:target ~ svg use:nth-of-type(14), #svg:target ~ svg use:nth-of-type(15), #svg:target ~ svg use:nth-of-type(16), #svg:target ~ svg use:nth-of-type(17), #svg:target ~ svg use:nth-of-type(18), #svg:target ~ svg use:nth-of-type(19), #svg:target ~ svg use:nth-of-type(20), #svg:target ~ svg use:nth-of-type(21), #svg:target ~ svg use:nth-of-type(22), #svg:target ~ svg use:nth-of-type(23), #svg:target ~ svg use:nth-of-type(24), #svg:target ~ svg use:nth-of-type(25), #svg:target ~ svg use:nth-of-type(26), #svg:target ~ svg use:nth-of-type(27), #svg:target ~ svg use:nth-of-type(28), #svg:target ~ svg use:nth-of-type(29), #svg:target ~ svg use:nth-of-type(30), #svg:target ~ svg use:nth-of-type(31), #svg:target ~ svg use:nth-of-type(32), #svg:target ~ svg use:nth-of-type(33) {
@@ -1660,156 +1683,187 @@ section li {
 #svg:target ~ svg use:nth-of-type(3) {
   --x: -30px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(4) {
   --x: -50px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(5) {
   --x: -40px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(6) {
   --x: -40px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(7) {
   --x: -50px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(8) {
   --x: -30px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(9) {
   --x: -50px;
   --y: -10px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(10) {
   --x: -30px;
   --y: 10px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(11) {
   --x: -50px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(12) {
   --x: -30px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(13) {
   --x: -40px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(14) {
   --x: -10px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(15) {
   --x: 10px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(16) {
   --x: -10px;
   --y: -10px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(17) {
   --x: 10px;
   --y: -10px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(18) {
   --x: -10px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(19) {
   --x: 10px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(20) {
   --x: -10px;
   --y: 10px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(21) {
   --x: 10px;
   --y: 10px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(22) {
   --x: 0px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(23) {
   --x: 30px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(24) {
   --x: 50px;
   --y: 10px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(25) {
   --x: 40px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(26) {
   --x: 30px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(27) {
   --x: 40px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(28) {
   --x: 50px;
   --y: -20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(29) {
   --x: 50px;
   --y: 20px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(30) {
   --x: 30px;
   --y: -10px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(31) {
   --x: 30px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(32) {
   --x: 50px;
   --y: 0px;
+  --color: #a6a6a6;
 }
 
 #svg:target ~ svg use:nth-of-type(33) {
   --x: 30px;
   --y: 10px;
+  --color: #a6a6a6;
 }
 
 #bff:target ~ svg use:nth-of-type(1), #bff:target ~ svg use:nth-of-type(2), #bff:target ~ svg use:nth-of-type(3) {

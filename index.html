@@ -11,16 +11,15 @@
 <span id="heart"></span>
 <span id="list"></span>
 <span id="expend"></span>
+<span id="masque"></span>
 <span id="flower"></span>
 <span id="teapot"></span>
 <span id="sunny"></span>
-<span id="masque"></span>
-<span id="basic"></span>
 <span id="chrome"></span>
 <span id="bug"></span>
 <span id="broken"></span>
-<span id="svg"></span>
 <span id="css"></span>
+<span id="svg"></span>
 <span id="bff"></span>
 
 
@@ -40,6 +39,8 @@
   <use x="0" y="0" href="#rect" />
   <use x="0" y="0" href="#rect" />
   <use x="0" y="0" href="#rect" />
+
+  <!-- 10 -->
   <use x="0" y="0" href="#rect" />
   <use x="0" y="0" href="#rect" />
   <use x="0" y="0" href="#rect" />
@@ -50,6 +51,8 @@
   <use x="0" y="0" href="#rect" />
   <use x="0" y="0" href="#rect" />
   <use x="0" y="0" href="#rect" />
+
+  <!-- 20 -->
   <use x="0" y="0" href="#rect" />
   <use x="0" y="0" href="#rect" />
   <use x="0" y="0" href="#rect" />
@@ -60,6 +63,8 @@
   <use x="0" y="0" href="#rect" />
   <use x="0" y="0" href="#rect" />
   <use x="0" y="0" href="#rect" />
+
+  <!-- 30 -->
   <use x="0" y="0" href="#rect" />
   <use x="0" y="0" href="#rect" />
   <use x="0" y="0" href="#rect" />
@@ -93,8 +98,6 @@
   </a>
 
   <text class="onceuponatime" y="5" pathLength="100">Once Upon A Time…</text>
-
-  <path d="M0,-50 v100 M-80,0 h160" />
 </svg>
 
 
@@ -109,12 +112,11 @@
 <a href="#flower"></a>
 <a href="#teapot"></a>
 <a href="#sunny"></a>
-<a href="#basic"></a>
 <a href="#chrome"></a>
 <a href="#bug"></a>
 <a href="#broken"></a>
-<a href="#svg"></a>
 <a href="#css"></a>
+<a href="#svg"></a>
 <a href="#bff"></a>
 
 <section class="css">
@@ -141,8 +143,22 @@
 </section>
 
 <script>
+window.addEventListener('DOMContentLoaded', () => {
+  const slides = Array
+    .from(document.querySelectorAll('span'))
+    .map(node => `#${node.id}`)
+
+  function updateSlides (direction) {
+    const hash  = window.location.hash
+    const index = (((Math.max(slides.indexOf(hash), 0) + direction + 1) || slides.length) - 1) % slides.length
+
+    window.location.hash = slides[index]
+  }
+
   window.addEventListener('keyup', (e) => {
-    if (e.key !== 'f') { return; }
-    document.body.requestFullscreen()
+    if (e.key === 'f'         ) { return document.body.requestFullscreen() }
+    if (e.key === 'ArrowRight') { return updateSlides(1) }
+    if (e.key === 'ArrowLeft' ) { return updateSlides(-1) }
   })
+});
 </script>

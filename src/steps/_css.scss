@@ -1,7 +1,7 @@
 @use "../mixins" as mx;
 @use "../text";
 
-$commons: ('size': 10px, 'thikness': 1px, 'color': white);
+$commons: ('size': 10px, 'thikness': 1px, 'color': hsl(0, 0%, 65%));
 
 #css:target ~ svg {
   $i: 2;

@@ -47,7 +47,7 @@ $base: ('color': $color, 'rx': 50%);
 
     @for $i from 1 to 23 {
       @include mx.use($i, $size: 10px, $x: -47px, $y: -7px, $color: white, $rx: 50%) {
-        animation: 5s $i*350ms smoke#{$i % 3} infinite both;
+        animation: 5s $i * -350ms smoke#{$i % 3} infinite both;
       }
     }
 
